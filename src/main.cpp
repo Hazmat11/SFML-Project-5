@@ -2,9 +2,40 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Magenta);
+    //On load la texture
+
+    sf::Texture texture;
+    if (!texture.loadFromFile("C:/Users/tboros/Downloads/sans.png", sf::IntRect(0, 0, 800, 800)))
+    {
+        //error
+    }
+
+    //On rend la texture plus smooth
+
+    texture.setSmooth(true);
+
+
+    //On récupère la taille de l'image pour scale avec la fenêtre plus tard
+
+    int tx = texture.getSize().x;
+    int ty = texture.getSize().y;
+
+    //On crée une fenêtre d'affichage et limite les FPS à 60
+
+    sf::RenderWindow window(sf::VideoMode(tx, ty), "The Binding of PikachUwU");
+
+    window.setFramerateLimit(60);
+
+
+    //On load un sprite en utilisant la texture load juste avant
+
+    sf::Sprite sprite;
+    sprite.setTexture(texture);
+
+    sprite.scale(sf::Vector2f(1.0f, 1.0f));
+
+
+
 
     while (window.isOpen())
     {
@@ -16,7 +47,7 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        window.draw(sprite);
         window.display();
     }
 
