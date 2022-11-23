@@ -1,6 +1,10 @@
 #include "Game.h"
+#include "texture.h"
 
 void Game() {
+
+    DoTexture texture;
+
     // create the window
     RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE/*, sf::Style::Fullscreen*/);
     window.setFramerateLimit(60);
@@ -10,7 +14,6 @@ void Game() {
 
     while (window.isOpen())
     {
-
         // main loop 
 
         Event event;
@@ -21,9 +24,9 @@ void Game() {
             if (event.type == Event::Closed)
                 window.close();
         }
-
         window.clear();
-        window.draw(shape);
+        texture.showTexture();
+        window.draw(texture.sprite);
         window.display();
     }
 }

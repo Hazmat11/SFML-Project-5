@@ -5,8 +5,8 @@
 
 using namespace sf;
 
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
+#define WINDOW_WIDTH 400
+#define WINDOW_HEIGHT 400
 #define TITLE std::string("The Binding of Pikachu")
 
 void Game();
