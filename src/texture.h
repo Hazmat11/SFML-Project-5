@@ -6,7 +6,7 @@ class DoTexture
 {
 public:
 
-	sf::Sprite sprite;
+	sf::Sprite player;
 	sf::Texture texture;
 
 	void showTexture();

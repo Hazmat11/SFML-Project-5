@@ -1,9 +1,11 @@
 #include "Game.h"
 #include "texture.h"
+#include "Player.h"
 
 void Game() {
 
     DoTexture texture;
+    Player gamer;
 
     // create the window
     RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE/*, sf::Style::Fullscreen*/);
@@ -14,6 +16,9 @@ void Game() {
 
     while (window.isOpen())
     {
+        gamer.move();
+        texture.showTexture();
+
         // main loop 
 
         Event event;
@@ -25,8 +30,7 @@ void Game() {
                 window.close();
         }
         window.clear();
-        texture.showTexture();
-        window.draw(texture.sprite);
+        window.draw(texture.player);
         window.display();
     }
 }
