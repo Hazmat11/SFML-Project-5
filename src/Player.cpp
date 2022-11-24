@@ -57,10 +57,10 @@ void Player::showTexture()
 			texture.loadFromFile("img/player.png", sf::IntRect(10, 140, 60, 60));
 			break;
 		case 2:
-
+			texture.loadFromFile("img/player.png", sf::IntRect(10, 75, 60, 60));
 			break;
 		case 3:
-
+			texture.loadFromFile("img/player.png", sf::IntRect(10, 200, 60, 60));
 			break;
 		case 4:
 			texture.loadFromFile("img/player.png", sf::IntRect(10, 10, 60, 60));
@@ -78,10 +78,10 @@ void Player::showTexture()
 			break;
 
 		case 2:
-
+			texture.loadFromFile("img/player.png", sf::IntRect(140, 75, 60, 60));
 			break;
 		case 3:
-
+			texture.loadFromFile("img/player.png", sf::IntRect(140, 200, 60, 60));
 			break;
 		case 4:
 			texture.loadFromFile("img/player.png", sf::IntRect(140, 10, 60, 60));
