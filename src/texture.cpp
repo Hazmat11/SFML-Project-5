@@ -31,6 +31,11 @@ void DoTexture::showTexture()
 
 void DoTexture::arrangeSprite()
 {
-	player.scale(sf::Vector2f(2.f, 2.f));
+	player.scale(sf::Vector2f(2.3f, 2.3f));
 	player.setPosition(sf::Vector2f(555.f, 325.f));
+}
+
+void DoTexture::setPlayerCollisions()
+{
+	sf::FloatRect boundingBox = player.getGlobalBounds();
 }

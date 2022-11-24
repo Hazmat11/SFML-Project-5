@@ -11,6 +11,7 @@ public:
 
 	void showTexture();
 	void arrangeSprite();
+	void setPlayerCollisions();
 
 	DoTexture();
 	~DoTexture();

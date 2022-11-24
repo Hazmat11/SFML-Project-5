@@ -9,7 +9,11 @@ public:
 	sf::Texture map1;
 	sf::Sprite actualMap;
 
+	sf::Texture collision;
+	sf::Sprite actualCollision;
+
 	void showMap();
+	void setCollisions();
 
 	Map();
 	~Map();

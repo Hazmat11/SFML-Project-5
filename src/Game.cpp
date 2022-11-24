@@ -17,6 +17,7 @@ void Game() {
     shape.setFillColor(Color::Green);
 
     texture.arrangeSprite();
+    texture.setPlayerCollisions();
 
     while (window.isOpen())
     {
