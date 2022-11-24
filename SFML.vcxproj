@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Ennemies.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Player.h" />
@@ -142,6 +143,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Ennemies.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\Ennemies\1fJiggly.png" />

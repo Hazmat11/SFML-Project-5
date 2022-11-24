@@ -11,9 +11,6 @@ void Game() {
     RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE/*, sf::Style::Fullscreen*/);
     window.setFramerateLimit(60);
 
-    CircleShape shape(100.f);
-    shape.setFillColor(Color::Green);
-
     player.arrangeSprite();
     player.setPlayerCollisions();
     //map.showMap();
