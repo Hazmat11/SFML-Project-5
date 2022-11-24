@@ -104,12 +104,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\ebertrand\Documents\SFML-2.5.1\include;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\include;C:\Users\tboros\source\repos\SFML-Project-5\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ebertrand\Documents\SFML-2.5.1\include;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\include;C:\Users\tboros\source\repos\Projet 5 %28Théo%29\Projet 5\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\ebertrand\Documents\SFML-2.5.1\lib;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\ebertrand\Documents\SFML-2.5.1\lib;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\lib;C:\Users\tboros\source\repos\Projet 5 %28Théo%29\Projet 5\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -134,12 +134,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\texture.cpp" />
   </ItemGroup>

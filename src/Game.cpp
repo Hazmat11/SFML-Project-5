@@ -1,9 +1,13 @@
 #include "Game.h"
 #include "texture.h"
 #include "Player.h"
+#include "Map.h"
 
 void Game() {
 
+    DoTexture texture;
+    Player gamer;
+    Map map;
     Player player;
 
     // create the window
@@ -13,9 +17,15 @@ void Game() {
     CircleShape shape(100.f);
     shape.setFillColor(Color::Green);
 
+    texture.arrangeSprite();
+    texture.setPlayerCollisions();
+
     while (window.isOpen())
     {
         player.showTexture();
+        gamer.move();
+        texture.showTexture();
+        map.showMap();
 
         // main loop 
 
@@ -30,6 +40,8 @@ void Game() {
         window.clear();
         player.move();
         window.draw(player.playerSprite);
+        window.draw(map.actualMap);
+        window.draw(texture.player);
         window.display();
     }
 }
