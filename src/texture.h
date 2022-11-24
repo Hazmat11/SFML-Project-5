@@ -6,14 +6,11 @@ class DoTexture
 {
 public:
 
-	sf::Sprite player;
-	sf::Texture texture;
-
-	void showTexture();
 
 	DoTexture();
 	~DoTexture();
 
-	int a = 0;
+private:
+	std::vector<sf::IntRect> animationPos;
 };
 

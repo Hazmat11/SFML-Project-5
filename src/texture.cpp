@@ -9,21 +9,3 @@ DoTexture::~DoTexture()
 
 }
 
-void DoTexture::showTexture() 
-{
-	if (a < 30) {
-		texture.loadFromFile("img/player.png", sf::IntRect(10, 10, 60, 60));
-		player.setTexture(texture);
-		a++;
-	}
-	
-	if (a < 60 && a > 29) {
-		texture.loadFromFile("img/player.png", sf::IntRect(140, 10, 60, 60));
-		player.setTexture(texture);
-		a++;
-	}
-
-	if (a == 60) {
-		a = 0;
-	}
-}

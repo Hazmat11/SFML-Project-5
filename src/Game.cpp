@@ -4,8 +4,7 @@
 
 void Game() {
 
-    DoTexture texture;
-    Player gamer;
+    Player player;
 
     // create the window
     RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE/*, sf::Style::Fullscreen*/);
@@ -16,8 +15,7 @@ void Game() {
 
     while (window.isOpen())
     {
-        gamer.move();
-        texture.showTexture();
+        player.showTexture();
 
         // main loop 
 
@@ -30,7 +28,8 @@ void Game() {
                 window.close();
         }
         window.clear();
-        window.draw(texture.player);
+        player.move();
+        window.draw(player.playerSprite);
         window.display();
     }
 }
