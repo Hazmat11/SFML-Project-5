@@ -1,11 +1,13 @@
 #include "Game.h"
 #include "texture.h"
 #include "Player.h"
+#include "Map.h"
 
 void Game() {
 
     DoTexture texture;
     Player gamer;
+    Map map;
 
     // create the window
     RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE/*, sf::Style::Fullscreen*/);
@@ -14,10 +16,13 @@ void Game() {
     CircleShape shape(100.f);
     shape.setFillColor(Color::Green);
 
+    texture.arrangeSprite();
+
     while (window.isOpen())
     {
         gamer.move();
         texture.showTexture();
+        map.showMap();
 
         // main loop 
 
@@ -30,6 +35,7 @@ void Game() {
                 window.close();
         }
         window.clear();
+        window.draw(map.actualMap);
         window.draw(texture.player);
         window.display();
     }

@@ -10,6 +10,7 @@ public:
 	sf::Texture texture;
 
 	void showTexture();
+	void arrangeSprite();
 
 	DoTexture();
 	~DoTexture();

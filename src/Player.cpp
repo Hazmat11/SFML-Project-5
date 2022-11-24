@@ -13,7 +13,7 @@ void Player::move() {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        // la touche "flèche gauche" est enfoncée : on bouge le personnage
+        // la touche "flèche droite" est enfoncée : on bouge le personnage
         sprite.player.move(0.f, 1.f);
         sprite.player.getPosition();
     }
