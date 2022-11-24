@@ -5,8 +5,6 @@
 
 void Game() {
 
-    DoTexture texture;
-    Player gamer;
     Map map;
     Player player;
 
@@ -17,15 +15,14 @@ void Game() {
     CircleShape shape(100.f);
     shape.setFillColor(Color::Green);
 
-    texture.arrangeSprite();
-    texture.setPlayerCollisions();
+    player.arrangeSprite();
+    player.setPlayerCollisions();
+    //map.showMap();
 
     while (window.isOpen())
     {
         player.showTexture();
-        gamer.move();
-        texture.showTexture();
-        map.showMap();
+        player.movePlayer();
 
         // main loop 
 
@@ -38,10 +35,9 @@ void Game() {
                 window.close();
         }
         window.clear();
-        player.move();
+        player.movePlayer();
         window.draw(player.playerSprite);
         window.draw(map.actualMap);
-        window.draw(texture.player);
         window.display();
     }
 }
