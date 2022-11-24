@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "texture.h"
 
 Player::Player() {
 }
@@ -9,7 +8,6 @@ Player::~Player() {
 }
 
 sf::Vector2f Player::returnPos(const int playerX, const int playerY){
-	playerSprite.setPosition(100, 500);
 	sf::Vector2f position = playerSprite.getPosition();
 	std::cout << position.x << " " << position.y << "\n";
 	return position; 
@@ -51,19 +49,19 @@ void Player::showTexture()
 	if (a < 30) {
 		switch (direction) {
 		default:
-			texture.loadFromFile("img/player.png", sf::IntRect(10, 10, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 10, 60, 60));
 			break;
 		case 1:
-			texture.loadFromFile("img/player.png", sf::IntRect(10, 140, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 140, 60, 60));
 			break;
 		case 2:
-			texture.loadFromFile("img/player.png", sf::IntRect(10, 75, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 75, 60, 60));
 			break;
 		case 3:
-			texture.loadFromFile("img/player.png", sf::IntRect(10, 200, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 200, 60, 60));
 			break;
 		case 4:
-			texture.loadFromFile("img/player.png", sf::IntRect(10, 10, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 10, 60, 60));
 			break;
 		}
 		playerSprite.setTexture(texture);
@@ -72,20 +70,19 @@ void Player::showTexture()
 	if (a < 60 && a > 29) {
 		switch (direction) {
 		default:
-			texture.loadFromFile("img/player.png", sf::IntRect(140, 10, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 10, 60, 60));
 			break;
 		case 1:
-			texture.loadFromFile("img/player.png", sf::IntRect(140, 140, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 140, 60, 60));
 			break;
-
 		case 2:
-			texture.loadFromFile("img/player.png", sf::IntRect(140, 75, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 75, 60, 60));
 			break;
 		case 3:
-			texture.loadFromFile("img/player.png", sf::IntRect(140, 200, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 200, 60, 60));
 			break;
 		case 4:
-			texture.loadFromFile("img/player.png", sf::IntRect(140, 10, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 10, 60, 60));
 			break;
 		}
 		playerSprite.setTexture(texture);

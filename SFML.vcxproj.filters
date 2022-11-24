@@ -24,9 +24,6 @@
     <ClCompile Include="src\Player.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\texture.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="src\Map.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -38,15 +35,27 @@
     <ClInclude Include="src\Player.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="src\texture.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="src\Map.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\player.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\1fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\2fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\3fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\4fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\5fJiggly.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
   </ItemGroup>

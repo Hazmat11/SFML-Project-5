@@ -136,16 +136,19 @@
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Player.h" />
-    <ClInclude Include="src\texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Player.cpp" />
-    <ClCompile Include="src\texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="img\Ennemies\1fJiggly.png" />
+    <Image Include="img\Ennemies\2fJiggly.png" />
+    <Image Include="img\Ennemies\3fJiggly.png" />
+    <Image Include="img\Ennemies\4fJiggly.png" />
+    <Image Include="img\Ennemies\5fJiggly.png" />
     <Image Include="img\player.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
