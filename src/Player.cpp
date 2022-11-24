@@ -67,6 +67,7 @@ void Player::showTexture()
 			break;
 		}
 		playerSprite.setTexture(texture);
+		a++;
 	}
 	if (a < 60 && a > 29) {
 		switch (direction) {
@@ -88,14 +89,6 @@ void Player::showTexture()
 			break;
 		}
 		playerSprite.setTexture(texture);
-	}
-
-	if (a < 30) {
-
-		a++;
-	}
-
-	if (a < 60 && a > 29) {
 		a++;
 	}
 
