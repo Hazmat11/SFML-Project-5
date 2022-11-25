@@ -137,8 +137,10 @@
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\Projectiles.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Projectiles.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />

@@ -13,14 +13,19 @@ void Game() {
 
     player.arrangeSprite();
     player.setPlayerCollisions();
+
+
     //map.showMap();
+
+    map.showMap();
 
     while (window.isOpen())
     {
         player.showTexture();
         player.movePlayer();
 
-        // main loop 
+
+        // main loop u
 
         Event event;
         while (window.pollEvent(event))
@@ -32,8 +37,8 @@ void Game() {
         }
         window.clear();
         player.movePlayer();
-        window.draw(player.playerSprite);
         window.draw(map.actualMap);
+        window.draw(player.playerSprite);
         window.display();
     }
 }

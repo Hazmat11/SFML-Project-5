@@ -22,8 +22,10 @@ public :
 	void showTexture();
 	void arrangeSprite();
 	void setPlayerCollisions();
+	void shoot();
 
 	sf::Vector2f returnPos(const int, const int);
+
 
 private :
 	int a = 0;
