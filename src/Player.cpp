@@ -39,9 +39,10 @@ void Player::movePlayer() {
 		playerSprite.getPosition();
 	}
 
+
 }
 
-void Player::shoot()
+void Player::playerShoot()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{

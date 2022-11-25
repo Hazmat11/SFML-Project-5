@@ -140,12 +140,12 @@
     <ClInclude Include="src\Projectiles.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Projectiles.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Ennemies.cpp" />
+    <ClCompile Include="src\Projectiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\Ennemies\1fJiggly.png" />

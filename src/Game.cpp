@@ -1,11 +1,13 @@
 #include "Game.h"
 #include "Player.h"
 #include "Map.h"
+#include "Projectiles.h"
 
 void Game() {
 
     Map map;
     Player player;
+    Projectiles projectile;
 
     // create the window
     RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE/*, sf::Style::Fullscreen*/);
@@ -14,6 +16,7 @@ void Game() {
     player.arrangeSprite();
     player.setPlayerCollisions();
 
+    projectile.projectileArrangeSprite();
 
     //map.showMap();
 
@@ -23,6 +26,8 @@ void Game() {
     {
         player.showTexture();
         player.movePlayer();
+
+        projectile.showProjectileTexture();
 
 
         // main loop u
@@ -37,8 +42,11 @@ void Game() {
         }
         window.clear();
         player.movePlayer();
+        player.playerShoot();
+        projectile.shootProjectile();
         window.draw(map.actualMap);
         window.draw(player.playerSprite);
+        window.draw(projectile.projectileSprite);
         window.display();
     }
 }
