@@ -146,12 +146,8 @@
     <ClCompile Include="src\Ennemies.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="img\Ennemies\1fJiggly.png" />
-    <Image Include="img\Ennemies\2fJiggly.png" />
-    <Image Include="img\Ennemies\3fJiggly.png" />
-    <Image Include="img\Ennemies\4fJiggly.png" />
-    <Image Include="img\Ennemies\5fJiggly.png" />
     <Image Include="img\player.png" />
+    <Image Include="img\tilesJiggly.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

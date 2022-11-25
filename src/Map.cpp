@@ -1,7 +1,7 @@
 #include "Map.h"
 
 Map::Map() {
-
+	showMap();
 }
 
 Map::~Map() {
