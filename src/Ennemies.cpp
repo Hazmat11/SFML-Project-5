@@ -2,6 +2,7 @@
 
 Ennemies::Ennemies() {
 	arrangeSprite();
+	setEnnemiesCollisions();
 }
 
 Ennemies::~Ennemies() {
@@ -52,9 +53,11 @@ void Ennemies::refreshTexture() {
 }
 
 void Ennemies::setEnnemiesCollisions(){	
-	sf::FloatRect boundingBox = ennemiesSprite.getGlobalBounds();
-	if (boundingBox.intersects(player.playerBox))
+	sf::FloatRect ennemiesBox = ennemiesSprite.getGlobalBounds();
+	sf::FloatRect playerBox = player.playerSprite.getGlobalBounds();
+	if (ennemiesBox.intersects(playerBox))
 	{
+		std::cout << "chiasse";
 		// collision!
 	}
 }

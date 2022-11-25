@@ -10,6 +10,7 @@ InGame::~InGame() {
 void InGame::GameLoop() {
 	ennemies.ennemiesTexture();
 	player.playerTexture();
+	ennemies.setEnnemiesCollisions();
 	player.movePlayer();
 }
 
