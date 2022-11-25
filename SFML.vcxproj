@@ -156,6 +156,7 @@
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Ennemies.cpp" />
+    <ClCompile Include="src\Projectiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\player.png" />
