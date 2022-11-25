@@ -13,6 +13,6 @@ void InGame::GameLoop() {
 	player.movePlayer();
 }
 
-void InGame::Render() {
-	player.arrangeSprite();
+void InGame::Render(sf::RenderWindow* window) {
+
 }

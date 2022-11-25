@@ -13,7 +13,7 @@ void Menu::MenuLoop() {
 
 }
 
-void Menu::Render() {
+void Menu::Render(sf::RenderWindow* win) {
 	std::cout << "je suis le menu" << std::endl;
 }
 

@@ -1,5 +1,5 @@
 #pragma once
-#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
 
@@ -9,7 +9,7 @@ public :
 	Menu();
 	~Menu();
 	void MenuLoop();
-	void Render();
+	void Render(sf::RenderWindow* win);
 private :
 
 };

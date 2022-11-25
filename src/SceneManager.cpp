@@ -24,10 +24,10 @@ void SceneManager::manageScene() {
 void SceneManager::Draw() {
 	switch (gm.index) {
 	case MENU:
-		menu.Render();
+		menu.Render(&win);
 		break;
 	case GAME:
-		game.Render();
+		game.Render(&win);
 		break;
 	default:
 		std::cout << "Error Render Scene !" << std::endl;
