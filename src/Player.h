@@ -26,6 +26,7 @@ public :
 
 	sf::Vector2f returnPos(const int, const int);
 
+
 private :
 	int maxHP = 4;
 	int frame = 0;
