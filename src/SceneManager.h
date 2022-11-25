@@ -12,9 +12,6 @@
 
 class SceneManager {
 public :
-	sf::RenderWindow* win;
-	sf::Event* event;
-
 	SceneManager();
 	~SceneManager();
 	void manageScene();

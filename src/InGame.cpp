@@ -13,6 +13,8 @@ void InGame::GameLoop() {
 	player.movePlayer();
 }
 
-void InGame::Render(sf::RenderWindow* window) {
-
+void InGame::Render(sf::RenderWindow* window) {	
+	window->draw(map.actualMap);
+	window->draw(player.playerSprite);
+	window->draw(ennemies.ennemiesSprite);
 }

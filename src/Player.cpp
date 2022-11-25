@@ -10,9 +10,9 @@ Player::~Player() {
 }
 
 sf::Vector2f Player::returnPos(const int playerX, const int playerY){
-	sf::Vector2f position = playerSprite.getPosition();
-	std::cout << position.x << " " << position.y << "\n";
-	return position; 
+	sf::Vector2f playerPosition = playerSprite.getPosition();
+	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+	return playerPosition; 
 }
 
 void Player::movePlayer() {
@@ -108,5 +108,5 @@ void Player::arrangeSprite()
 
 void Player::setPlayerCollisions()
 {
-	sf::FloatRect boundingBox = playerSprite.getGlobalBounds();
+	playerBox = playerSprite.getGlobalBounds();
 }
