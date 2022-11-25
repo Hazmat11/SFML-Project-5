@@ -4,7 +4,11 @@ Button::Button() {
 
 }
 
-Button::Button(int x, int y, int w, int h, std::string text, sf::RenderWindow* window) {
+Button::~Button() {
+
+}
+
+void Button::setButton(int x, int y, int w, int h, std::string text, sf::RenderWindow* window, const sf::Color& color) {
 	this->posx = x;
 	this->posy = y;
 	this->width = w;
@@ -18,7 +22,7 @@ Button::Button(int x, int y, int w, int h, std::string text, sf::RenderWindow* w
 
 	sf::RectangleShape r(sf::Vector2f(this->posx, this->posy));
 	rect.setSize(sf::Vector2f(this->width, this->height));
-	rect.setFillColor(sf::Color::Red);
+	rect.setFillColor(color);
 
 	sf::Text txt;
 	// select the font
@@ -38,12 +42,8 @@ Button::Button(int x, int y, int w, int h, std::string text, sf::RenderWindow* w
 	this->win = window;
 }
 
-Button::~Button() {
-
-}
-
 void Button::ButtonLoop() {
-	UpdateDisplayBT();
+	RenderBT();
 }
 
 bool Button::OnHover() {
@@ -55,7 +55,7 @@ bool Button::OnHover() {
 	return false;
 }
 
-void Button::UpdateDisplayBT() {
+void Button::RenderBT() {
 	this->win->draw(this->rect);
 	this->win->draw(this->textSfml);
 }

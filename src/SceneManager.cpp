@@ -5,6 +5,7 @@ SceneManager::SceneManager() {
 
 SceneManager::SceneManager(sf::RenderWindow* win) {
 	rWin = win;
+	menu = new Menu(rWin);
 }
 
 SceneManager::~SceneManager() {
@@ -17,7 +18,7 @@ void SceneManager::SetGameManager(sf::Event* event) {
 void SceneManager::manageScene() {
 	switch (gm.index) {
 	case MENU :
-		menu.MenuLoop();
+		//menu.MenuLoop();
 		break;
 	case GAME :
 		game.GameLoop();

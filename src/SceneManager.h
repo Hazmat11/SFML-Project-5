@@ -22,6 +22,6 @@ public :
 	void Draw();
 private :
 	InGame game;
-	Menu menu;
+	Menu* menu;
 	GameManager gm;
 };
