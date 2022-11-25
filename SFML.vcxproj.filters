@@ -18,6 +18,58 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ennemies.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectiles.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Game.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Player.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Map.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ennemies.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Projectiles.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\player.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\1fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\2fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\3fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\4fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="img\Ennemies\5fJiggly.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
     <ClCompile Include="src\Button.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>

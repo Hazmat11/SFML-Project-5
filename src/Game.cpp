@@ -1,4 +1,6 @@
 #include "Game.h"
+#include "Player.h"
+#include "Map.h"
 
 void Game() {
     SceneManager sm;

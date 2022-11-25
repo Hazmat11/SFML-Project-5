@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\ebertrand\Documents\SFML\SFML-2.5.1\include;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\include;C:\Users\tboros\source\repos\SFML-Project-5\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ebertrand\Documents\SFML-2.5.1\include;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\include;C:\Users\tboros\source\repos\Projet 5 %28Théo%29\Projet 5\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include;C:\Users\etien\Documents\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\ebertrand\Documents\SFML\SFML-2.5.1\lib;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\ebertrand\Documents\SFML-2.5.1\lib;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\lib;C:\Users\tboros\source\repos\Projet 5 %28Théo%29\Projet 5\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib;C:\Users\etien\Documents\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -121,14 +121,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\ebertrand\Documents\SFML\SFML-2.5.1\include;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ebertrand\Documents\SFML-2.5.1\include;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\ebertrand\Documents\SFML\SFML-2.5.1\lib;C:\Users\agrandpaul\source\repos\SFML-Project-5\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\ebertrand\Documents\SFML-2.5.1\lib;C:\Users\agrandpaul\source\repos\SFML-Project-5\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -137,22 +137,36 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Button.h" />
+    <ClInclude Include="src\Ennemies.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameManager.h" />
     <ClInclude Include="src\InGame.h" />
     <ClInclude Include="src\Menu.h" />
+    <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\SoundD.h" />
     <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\Projectiles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="Projectiles.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\InGame.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Ennemies.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\Ennemies\1fJiggly.png" />
+    <Image Include="img\Ennemies\2fJiggly.png" />
+    <Image Include="img\Ennemies\3fJiggly.png" />
+    <Image Include="img\Ennemies\4fJiggly.png" />
+    <Image Include="img\Ennemies\5fJiggly.png" />
+    <Image Include="img\player.png" />
     <ClCompile Include="src\SoundD.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
   </ItemGroup>
