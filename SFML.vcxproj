@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -133,27 +133,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Ennemies.h" />
-    <ClInclude Include="src\Game.h" />
-    <ClInclude Include="src\Map.h" />
-    <ClInclude Include="src\Player.h" />
-    <ClInclude Include="src\Projectiles.h" />
+    <Image Include="Sources\pikachu.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Button.h" />
+    <ClInclude Include="src\Ennemies.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameManager.h" />
+    <ClInclude Include="src\InGame.h" />
+    <ClInclude Include="src\Menu.h" />
+    <ClInclude Include="src\Map.h" />
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\SceneManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameManager.cpp" />
+    <ClCompile Include="src\InGame.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
+    <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Ennemies.cpp" />
     <ClCompile Include="src\Projectiles.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="img\Ennemies\1fJiggly.png" />
-    <Image Include="img\Ennemies\2fJiggly.png" />
-    <Image Include="img\Ennemies\3fJiggly.png" />
-    <Image Include="img\Ennemies\4fJiggly.png" />
-    <Image Include="img\Ennemies\5fJiggly.png" />
     <Image Include="img\player.png" />
+    <ClCompile Include="src\SceneManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sources\lavenderTheme.ogg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Sources\upheavtt.ttf" />
+    <Image Include="img\tilesJiggly.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
