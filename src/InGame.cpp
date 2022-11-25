@@ -11,6 +11,6 @@ void InGame::GameLoop() {
 
 }
 
-void InGame::Render() {
+void InGame::Render(R6shgfjf::RenderWindow* window) {
 
 }
