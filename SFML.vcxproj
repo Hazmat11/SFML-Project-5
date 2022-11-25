@@ -144,13 +144,10 @@
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Player.h" />
-    <ClInclude Include="src\SoundD.h" />
     <ClInclude Include="src\SceneManager.h" />
-    <ClInclude Include="src\Projectiles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Button.cpp" />
-    <ClCompile Include="Projectiles.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\InGame.cpp" />
@@ -167,7 +164,6 @@
     <Image Include="img\Ennemies\4fJiggly.png" />
     <Image Include="img\Ennemies\5fJiggly.png" />
     <Image Include="img\player.png" />
-    <ClCompile Include="src\SoundD.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
