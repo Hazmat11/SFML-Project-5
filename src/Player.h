@@ -17,6 +17,7 @@ public :
 
 	sf::Sprite playerSprite;
 	sf::Texture texture;
+	sf::FloatRect playerBox;
 
 	void movePlayer();
 	void playerTexture();
