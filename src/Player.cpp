@@ -1,6 +1,8 @@
 #include "Player.h"
 
 Player::Player() {
+	arrangeSprite();
+	setPlayerCollisions();
 }
 
 Player::~Player() {
@@ -14,60 +16,43 @@ sf::Vector2f Player::returnPos(const int playerX, const int playerY){
 }
 
 void Player::movePlayer() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-		playerSprite.move(2.5f, 0.f);
+		playerSprite.move(2.f, 0.f);
 		playerSprite.getPosition();
-
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-	{
-		playerSprite.move(-2.5f, 0.f);
-		playerSprite.getPosition();
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
-	{
-		playerSprite.move(0.f, -2.5f);
-		playerSprite.getPosition();
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		playerSprite.move(0.f, 2.5f);
-		playerSprite.getPosition();
-	}
-
-}
-
-void Player::shoot()
-{
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	{
 		this->direction = RIGHT;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
+		playerSprite.move(-2.f, 0.f);
+		playerSprite.getPosition();
 		this->direction = LEFT;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
+		playerSprite.move(0.f, -2.f);
+		playerSprite.getPosition();
 		this->direction = UP;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
+		playerSprite.move(0.f, 2.f);
+		playerSprite.getPosition();
 		this->direction = DOWN;
 	}
 }
 
+int Player::playerHP() {
+	return 0;
+}
 
-void Player::showTexture()
+
+void Player::playerTexture()
 {
-	if (a < 30) {
+	if (frame < 30) {
 		switch (direction) {
 		default:
 			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 10, 60, 60));
@@ -86,14 +71,14 @@ void Player::showTexture()
 			break;
 		}
 		playerSprite.setTexture(texture);
-		a++;
+		frame++;
 	}
-	if (a < 60 && a > 29) {
+	if (frame < 60 && frame > 29) {
 		switch (direction) {
 		default:
 			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 10, 60, 60));
 			break;
-		case 1:
+		case 1 :
 			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 140, 60, 60));
 			break;
 		case 2:
@@ -107,11 +92,11 @@ void Player::showTexture()
 			break;
 		}
 		playerSprite.setTexture(texture);
-		a++;
+		frame++;
 	}
 
-	if (a == 60) {
-		a = 0;
+	if (frame == 60) {
+		frame = 0;
 	}
 }
 

@@ -19,16 +19,17 @@ public :
 	sf::Texture texture;
 
 	void movePlayer();
-	void showTexture();
+	void playerTexture();
 	void arrangeSprite();
 	void setPlayerCollisions();
-	void shoot();
+	int playerHP();
 
 	sf::Vector2f returnPos(const int, const int);
 
 
 private :
-	int a = 0;
+	int maxHP = 4;
+	int frame = 0;
 	int direction;
 };
 

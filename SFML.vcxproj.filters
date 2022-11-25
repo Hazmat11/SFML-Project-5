@@ -55,19 +55,7 @@
     <Image Include="img\player.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
-    <Image Include="img\Ennemies\1fJiggly.png">
-      <Filter>Fichiers de ressources</Filter>
-    </Image>
-    <Image Include="img\Ennemies\2fJiggly.png">
-      <Filter>Fichiers de ressources</Filter>
-    </Image>
-    <Image Include="img\Ennemies\3fJiggly.png">
-      <Filter>Fichiers de ressources</Filter>
-    </Image>
-    <Image Include="img\Ennemies\4fJiggly.png">
-      <Filter>Fichiers de ressources</Filter>
-    </Image>
-    <Image Include="img\Ennemies\5fJiggly.png">
+    <Image Include="img\tilesJiggly.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
     <ClCompile Include="src\Button.cpp">
