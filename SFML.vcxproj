@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -110,7 +110,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\ebertrand\Documents\SFML\SFML-2.5.1\lib;C:\Users\agrandpaul\libraries\SFML-2.5.1-windows-vc15-64-bit %281%29\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,13 +136,31 @@
     <Image Include="Sources\pikachu.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Button.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameManager.h" />
+    <ClInclude Include="src\InGame.h" />
+    <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\SoundD.h" />
+    <ClInclude Include="src\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameManager.cpp" />
+    <ClCompile Include="src\InGame.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\SoundD.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sources\lavenderTheme.ogg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Sources\upheavtt.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
