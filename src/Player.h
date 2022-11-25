@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <vector>
+
 #define RIGHT 1;
 #define LEFT 2;
 #define UP 3;
@@ -11,6 +13,9 @@
 class Player
 {
 public :
+
+	Projectiles projectile;
+
 
 	Player();
 	~Player();
@@ -28,6 +33,8 @@ public :
 	sf::Vector2f returnPos(const int, const int);
 
 	sf::Vector2f playerPosition;
+
+	std::vector<Projectiles> tableauProjectiles();
 
 
 private :

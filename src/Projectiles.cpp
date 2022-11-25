@@ -12,40 +12,6 @@ Projectiles::~Projectiles()
 
 void Projectiles::shootProjectile()
 {
-	//Création d'un clone de projectile
-
-
-
-
-	//Apparition du projectile à la position du joueur
-
-
-
-
-
-
-	//Détection d'une flèche du clavier appuyée
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	{
-		projectileLaunchedRight = true;
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	{
-		projectileLaunchedLeft = true;
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-	{
-		projectileLaunchedUp = true;
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	{
-		projectileLaunchedDown = true;
-	}
-
 
 	//Mouvements du projectile
 
@@ -68,6 +34,13 @@ void Projectiles::shootProjectile()
 	{
 		projectileSprite.move(0.f, 10.f);
 	}
+
+}
+
+void Projectiles::projectilePosition()
+{
+
+	projectileSprite.setPosition(player.playerPosition.x, player.playerPosition.y);
 
 }
 
@@ -104,5 +77,5 @@ void Projectiles::showProjectileTexture()
 void Projectiles::projectileArrangeSprite()
 {
 	projectileSprite.scale(sf::Vector2f(4.f, 4.f));
-	projectileSprite.setPosition(sf::Vector2f(555.f, 325.f));
+	projectileSprite.setPosition(sf::Vector2f(-500.f, 0.f));
 }

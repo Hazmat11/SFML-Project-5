@@ -10,6 +10,8 @@ class Projectiles
 {
 public:
 
+	Player player;
+
 	Projectiles();
 	~Projectiles();
 
@@ -19,13 +21,13 @@ public:
 	void shootProjectile();
 	void showProjectileTexture();
 	void projectileArrangeSprite();
+	void projectilePosition();
 
 	bool projectileLaunchedRight = false;
 	bool projectileLaunchedLeft = false;
 	bool projectileLaunchedUp = false;
 	bool projectileLaunchedDown = false;
 
-	sf::Vector2f projectilePosition;
 
 private:
 

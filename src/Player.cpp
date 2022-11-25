@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Projectiles.h"
 
 Player::Player() {
 	arrangeSprite();
@@ -15,7 +16,9 @@ sf::Vector2f Player::returnPos(const int playerX, const int playerY){
 	return position; 
 }
 
-void Player::movePlayer() {
+void Player::movePlayer() 
+{
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
 		playerSprite.move(2.f, 0.f);
@@ -27,18 +30,21 @@ void Player::movePlayer() {
 	{
 		playerSprite.move(-2.5f, 0.f);
 		playerSprite.getPosition();
+
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
 		playerSprite.move(0.f, -2.5f);
 		playerSprite.getPosition();
+
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		playerSprite.move(0.f, 2.5f);
 		playerSprite.getPosition();
+
 	}
 
 
@@ -49,21 +55,29 @@ void Player::playerShoot()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		this->direction = RIGHT;
+		projectile.projectileLaunchedRight = true;
+		projectile.projectilePosition();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		this->direction = LEFT;
+		projectile.projectileLaunchedLeft = true;
+		projectile.projectilePosition();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		this->direction = UP;
+		projectile.projectileLaunchedUp = true;
+		projectile.projectilePosition();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		this->direction = DOWN;
+		projectile.projectileLaunchedDown = true;
+		projectile.projectilePosition();
 	}
 }
 
