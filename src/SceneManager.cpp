@@ -1,11 +1,17 @@
 #include "SceneManager.h"
 
 SceneManager::SceneManager() {
-	gm.setGameManager(this->event, this->win);
+}
+
+SceneManager::SceneManager(sf::RenderWindow* win) {
+	rWin = win;
 }
 
 SceneManager::~SceneManager() {
+}
 
+void SceneManager::SetGameManager(sf::Event* event) {
+	gm.setGameManager(event, rWin);
 }
 
 void SceneManager::manageScene() {

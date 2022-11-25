@@ -24,8 +24,11 @@ public :
 	void arrangeSprite();
 	void setPlayerCollisions();
 	int playerHP();
+	void playerShoot();
 
 	sf::Vector2f returnPos(const int, const int);
+
+	sf::Vector2f playerPosition;
 
 
 private :

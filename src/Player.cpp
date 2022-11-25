@@ -20,27 +20,49 @@ void Player::movePlayer() {
     {
 		playerSprite.move(2.f, 0.f);
 		playerSprite.getPosition();
+
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+	{
+		playerSprite.move(-2.5f, 0.f);
+		playerSprite.getPosition();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+	{
+		playerSprite.move(0.f, -2.5f);
+		playerSprite.getPosition();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		playerSprite.move(0.f, 2.5f);
+		playerSprite.getPosition();
+	}
+
+
+}
+
+void Player::playerShoot()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
 		this->direction = RIGHT;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		playerSprite.move(-2.f, 0.f);
-		playerSprite.getPosition();
 		this->direction = LEFT;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		playerSprite.move(0.f, -2.f);
-		playerSprite.getPosition();
 		this->direction = UP;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		playerSprite.move(0.f, 2.f);
-		playerSprite.getPosition();
 		this->direction = DOWN;
 	}
 }
