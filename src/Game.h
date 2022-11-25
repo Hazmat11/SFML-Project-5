@@ -8,7 +8,5 @@
 #define WINDOW_HEIGHT 750
 #define TITLE std::string("The Binding of Pikachu")
 
-
-
 void Game();
 void Render(sf::RenderWindow*, SceneManager sm);

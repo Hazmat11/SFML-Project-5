@@ -12,15 +12,16 @@
 
 class SceneManager {
 public :
-	sf::RenderWindow* win;
-	sf::Event* event;
+	sf::RenderWindow* rWin;
 
 	SceneManager();
+	SceneManager(sf::RenderWindow* win);
 	~SceneManager();
+	void SetGameManager(sf::Event* event);
 	void manageScene();
 	void Draw();
 private :
 	InGame game;
-	Menu menu;
+	Menu* menu;
 	GameManager gm;
 };

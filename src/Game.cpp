@@ -1,10 +1,9 @@
 #include "Game.h"
 
 void Game() {
-    SceneManager sm;
     sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE/*, sf::Style::Fullscreen*/);
     window.setFramerateLimit(60);
-
+    SceneManager sm(&window);
     while (window.isOpen())
     {
         sf::Event event;
@@ -18,7 +17,7 @@ void Game() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
+        sm.SetGameManager(&event);
         Render(&window, sm);
     }
 }

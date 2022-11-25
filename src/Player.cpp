@@ -11,38 +11,35 @@ Player::~Player() {
 }
 
 sf::Vector2f Player::returnPos(const int playerX, const int playerY){
-	sf::Vector2f position = playerSprite.getPosition();
-	std::cout << position.x << " " << position.y << "\n";
-	return position; 
+	sf::Vector2f playerPosition = playerSprite.getPosition();
+	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+	return playerPosition; 
 }
 
-void Player::movePlayer() 
-{
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+void Player::movePlayer() {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-		playerSprite.move(2.f, 0.f);
+		playerSprite.move(3.f, 0.f);
 		playerSprite.getPosition();
-
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 	{
-		playerSprite.move(-2.5f, 0.f);
+		playerSprite.move(-3.f, 0.f);
 		playerSprite.getPosition();
 
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
-		playerSprite.move(0.f, -2.5f);
+		playerSprite.move(0.f, -3.f);
 		playerSprite.getPosition();
 
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		playerSprite.move(0.f, 2.5f);
+		playerSprite.move(0.f, 3.f);
 		playerSprite.getPosition();
 
 	}
@@ -144,5 +141,5 @@ void Player::arrangeSprite()
 
 void Player::setPlayerCollisions()
 {
-	sf::FloatRect boundingBox = playerSprite.getGlobalBounds();
+	playerBox = playerSprite.getGlobalBounds();
 }

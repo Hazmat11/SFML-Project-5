@@ -1,17 +1,24 @@
 #include "SceneManager.h"
 
 SceneManager::SceneManager() {
-	gm.setGameManager(this->event, this->win);
+}
+
+SceneManager::SceneManager(sf::RenderWindow* win) {
+	rWin = win;
+	menu = new Menu(rWin);
 }
 
 SceneManager::~SceneManager() {
+}
 
+void SceneManager::SetGameManager(sf::Event* event) {
+	gm.setGameManager(event, rWin);
 }
 
 void SceneManager::manageScene() {
 	switch (gm.index) {
 	case MENU :
-		menu.MenuLoop();
+		//menu.MenuLoop();
 		break;
 	case GAME :
 		game.GameLoop();
@@ -24,10 +31,10 @@ void SceneManager::manageScene() {
 void SceneManager::Draw() {
 	switch (gm.index) {
 	case MENU:
-		menu.Render(&win);
+		menu.Render(gm.rw);
 		break;
 	case GAME:
-		game.Render(&win);
+		game.Render(gm.rw);
 		break;
 	default:
 		std::cout << "Error Render Scene !" << std::endl;
