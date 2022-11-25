@@ -52,6 +52,11 @@ void Ennemies::refreshTexture() {
 }
 
 void Ennemies::setEnnemiesCollisions()
-{
-	sf::FloatRect boundingBox = ennemiesSprite.getGlobalBounds();
+{/*	sf::FloatRect boundingBox = ennemiesSprite.getGlobalBounds();
+	sf::FloatRect otherBox = player.boudingBox;
+	if (boundingBox.intersects(otherBox))
+	{
+		// collision!
+	}*/
+
 }
