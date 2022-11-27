@@ -1,5 +1,5 @@
 #include "Projectiles.h"
-#include "Player.h"
+
 
 
 Projectiles::Projectiles()
@@ -40,7 +40,7 @@ void Projectiles::shootProjectile()
 void Projectiles::projectilePosition()
 {
 
-	projectileSprite.setPosition(player.playerPosition.x, player.playerPosition.y);
+	projectileSprite.setPosition(555.f, 325.f);
 
 }
 
