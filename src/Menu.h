@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
+#include <list>
 #include "Button.h"
 
 class Menu {
@@ -14,5 +15,8 @@ public :
 	void MenuLoop();
 	void Render(sf::RenderWindow* win);
 private :
+	Button buttons[3] = {quitBT, playBT, setBT};
 	Button quitBT;
+	Button playBT;
+	Button setBT;
 };
