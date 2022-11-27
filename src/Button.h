@@ -8,14 +8,13 @@ public :
 	Button();
 	~Button();
 	void setButton(int x, int y, int w, int h, std::string txt, sf::RenderWindow* window, const sf::Color& color);
-	void ButtonLoop();
 	bool OnHover();
+	void RenderBT();
+
 private :
 	sf::RectangleShape rect;
 	sf::Text textSfml;
 	sf::RenderWindow* win;
 
 	int posx, posy, width, height;
-	
-	void RenderBT();
 };
