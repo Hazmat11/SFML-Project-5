@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
+#include "Projectiles.h"
 
 #define RIGHT 1;
 #define LEFT 2;

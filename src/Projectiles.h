@@ -10,7 +10,6 @@ class Projectiles
 {
 public:
 
-	Player player;
 
 	Projectiles();
 	~Projectiles();
