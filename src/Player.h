@@ -17,7 +17,6 @@ public :
 
 	Projectiles projectile;
 
-
 	Player();
 	~Player();
 
@@ -36,12 +35,13 @@ public :
 
 	sf::Vector2f playerPosition;
 
-	std::vector<Projectiles> tableauProjectiles();
+	std::vector<Projectiles> listeProjectiles;
 
 
 private :
 	int maxHP = 4;
 	int frame = 0;
 	int direction;
+	int shootTimer = 0;
 };
 

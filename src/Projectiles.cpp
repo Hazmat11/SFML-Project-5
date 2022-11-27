@@ -39,9 +39,12 @@ void Projectiles::shootProjectile()
 
 void Projectiles::projectilePosition()
 {
-
 	projectileSprite.setPosition(555.f, 325.f);
+}
 
+void Projectiles::setProjectileCollisions()
+{
+	projectileBox = projectileSprite.getGlobalBounds();
 }
 
 void Projectiles::showProjectileTexture()

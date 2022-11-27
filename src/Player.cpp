@@ -49,29 +49,47 @@ void Player::movePlayer() {
 
 void Player::playerShoot()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	Projectiles prj;
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && shootTimer > 1)
 	{
+		shootTimer = 0;
+
+		listeProjectiles.push_back(Projectiles(prj));
+
 		this->direction = RIGHT;
 		projectile.projectileLaunchedRight = true;
 		projectile.projectilePosition();
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && shootTimer > 1)
 	{
+		shootTimer = 0;
+
+		listeProjectiles.push_back(Projectiles(prj));
+
 		this->direction = LEFT;
 		projectile.projectileLaunchedLeft = true;
 		projectile.projectilePosition();
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && shootTimer > 1)
 	{
+		shootTimer = 0;
+
+		listeProjectiles.push_back(Projectiles(prj));
+
 		this->direction = UP;
 		projectile.projectileLaunchedUp = true;
 		projectile.projectilePosition();
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && shootTimer > 1)		//A faire: incrémenter shootTimer dans la fonction Update
 	{
+		shootTimer = 0;
+
+		listeProjectiles.push_back(Projectiles(prj));
+
 		this->direction = DOWN;
 		projectile.projectileLaunchedDown = true;
 		projectile.projectilePosition();

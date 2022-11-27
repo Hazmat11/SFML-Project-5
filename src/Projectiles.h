@@ -16,11 +16,13 @@ public:
 
 	sf::Sprite projectileSprite;
 	sf::Texture projectileTexture;
+	sf::FloatRect projectileBox;
 
 	void shootProjectile();
 	void showProjectileTexture();
 	void projectileArrangeSprite();
 	void projectilePosition();
+	void setProjectileCollisions();
 
 	bool projectileLaunchedRight = false;
 	bool projectileLaunchedLeft = false;

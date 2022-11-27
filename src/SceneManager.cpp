@@ -4,6 +4,7 @@ SceneManager::SceneManager() {
 }
 
 SceneManager::SceneManager(sf::RenderWindow* win) {
+
 	rWin = win;
 	menu = new Menu(rWin);
 }
@@ -29,6 +30,7 @@ void SceneManager::manageScene() {
 }
 
 void SceneManager::Draw() {
+
 	switch (gm.index) {
 	case MENU:
 		menu.Render(gm.rw);
