@@ -20,5 +20,4 @@ private :
 	std::vector<Button> buttons;
 	Button quitBT;
 	Button playBT;
-	Button setBT;
 };

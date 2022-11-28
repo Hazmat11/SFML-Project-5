@@ -29,14 +29,14 @@ void Button::setButton(int x, int y, int w, int h, std::string text, sf::RenderW
 
 	// select the font
 	textSfml.setFont(fontIsaac);
+	// set position
+	textSfml.setPosition(sf::Vector2f(this->posx, this->posy));
 	// set the string to display
 	textSfml.setString(text);
 	// set the character size
 	textSfml.setCharacterSize(24); // in pixels, not points!
 	// set the color
 	textSfml.setFillColor(sf::Color::White);
-	// set the text style
-	//textSfml.setStyle(sf::Text::Bold);
 
 	this->win = window;
 }
@@ -58,5 +58,5 @@ bool Button::OnHover(sf::RenderWindow* rWin) {
 
 void Button::RenderBT() {
 	this->win->draw(this->rect);
-	//this->win->draw(this->textSfml);
+	this->win->draw(this->textSfml);
 }

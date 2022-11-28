@@ -11,8 +11,6 @@ Menu::Menu(sf::RenderWindow* win) {
 	buttons.push_back(quitBT);
 	playBT.setButton(100, 100, 100, 40, "Play", win, sf::Color::Green);
 	buttons.push_back(playBT);
-	setBT.setButton(100, 200, 100, 40, "Settings", win, sf::Color::Green);
-	buttons.push_back(setBT);
 }
 
 Menu::~Menu() {
@@ -34,11 +32,6 @@ int Menu::MenuLoop(sf::RenderWindow* rw) {
 					// play game
 					std::cout << "play" << std::endl;
 					return 1;
-					break;
-				case 2 :
-					// open settings
-					std::cout << "settings" << std::endl;
-					return 0;
 					break;
 				default:
 					// Do a Flip

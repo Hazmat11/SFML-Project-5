@@ -106,16 +106,16 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Sources\upheavtt.ttf">
-      <Filter>Fichiers de ressources</Filter>
-    </Font>
-    <Font Include="img\IsaacGame.ttf">
-      <Filter>Fichiers de ressources</Filter>
-    </Font>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Sources\lavenderTheme.ogg">
       <Filter>Fichiers de ressources</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="IsaacGame.ttf">
+      <Filter>Fichiers de ressources</Filter>
+    </Font>
+    <Font Include="upheavtt.ttf">
+      <Filter>Fichiers de ressources</Filter>
+    </Font>
   </ItemGroup>
 </Project>
