@@ -2,7 +2,6 @@
 
 Player::Player() {
 	arrangeSprite();
-	setPlayerCollisions();
 	texture.loadFromFile(PIKACHU_TEXTURE_PATH);
 }
 
@@ -12,12 +11,12 @@ Player::~Player() {
 
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
-	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
 	playerSprite.setPosition(playerPosition);
 	return playerPosition; 
 }
 
 void Player::wallCollision() {
+	returnPos();
 	if (playerPosition.x > 1635) {
 		playerSprite.move(-3.f, 0.f);
 	}
@@ -103,6 +102,9 @@ void Player::playerHP(sf::RenderWindow* window) {
 	if (HP == 0) {
 		window->close();
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+		window->close();
+	}
 }
 
 
@@ -112,19 +114,19 @@ void Player::playerTexture()
 	if (frame < 30) {
 		switch (direction) {
 		default:
-			playerSprite.setTextureRect(sf::IntRect(10, 10, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 50));
 			break;
 		case 1:
-			playerSprite.setTextureRect(sf::IntRect(10, 140, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 154, 40, 50));
 			break;
 		case 2:
-			playerSprite.setTextureRect(sf::IntRect(10, 75, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 89, 40, 50));
 			break;
 		case 3:
-			playerSprite.setTextureRect(sf::IntRect(10, 200, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 214, 40, 50));
 			break;
 		case 4:
-			playerSprite.setTextureRect(sf::IntRect(10, 10, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 50));
 			break;
 		}
 		playerSprite.setTexture(texture);
@@ -133,19 +135,19 @@ void Player::playerTexture()
 	if (frame < 60 && frame > 29) {
 		switch (direction) {
 		default:
-			playerSprite.setTextureRect(sf::IntRect(140, 10, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 50));
 			break;
 		case 1 :
-			playerSprite.setTextureRect(sf::IntRect(140, 140, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 154, 40, 50));
 			break;
 		case 2:
-			playerSprite.setTextureRect(sf::IntRect(140, 75, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 89, 40, 50));
 			break;
 		case 3:
-			playerSprite.setTextureRect(sf::IntRect(140, 200, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 214, 40, 50));
 			break;
 		case 4:
-			playerSprite.setTextureRect(sf::IntRect(140, 10, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 50));
 			break;
 		}
 		playerSprite.setTexture(texture);
@@ -163,11 +165,6 @@ void Player::arrangeSprite()
 	playerSprite.setPosition(sf::Vector2f(555.f, 325.f));
 }
 
-void Player::setPlayerCollisions()
-{
-	playerBox = playerSprite.getGlobalBounds();
-}
-
 void Player::projectilePosition(sf::Sprite projectile)
 {
 	projectile.setPosition(playerPosition.x, playerPosition.y);
@@ -176,6 +173,4 @@ void Player::projectilePosition(sf::Sprite projectile)
 void Player::playerRender(sf::RenderWindow* window) 
 {
 	window->draw(playerSprite);
-
-
 }

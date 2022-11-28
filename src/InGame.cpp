@@ -28,5 +28,4 @@ void InGame::Render(sf::RenderWindow* window) {
 	player.playerRender(window);
 	projectile.projectileRender(window);
 
-
 }
