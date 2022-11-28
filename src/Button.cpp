@@ -1,7 +1,16 @@
 #include "Button.h"
 
 Button::Button() {
-
+	
+	if (!this->fontIsaac.loadFromFile("upheavtt.ttf"))
+	{
+		std::cout << "Error TTF Regular Font" << std::endl;
+	}
+	
+	if (!this->fontTitle.loadFromFile("IsaacGame.ttf"))
+	{
+		std::cout << "Error TTF Title Font" << std::endl;
+	}
 }
 
 Button::~Button() {
@@ -13,12 +22,6 @@ void Button::setButton(int x, int y, int w, int h, std::string text, sf::RenderW
 	this->posy = y;
 	this->width = w;
 	this->height = h;
-
-	sf::Font fontIsaac;
-	if (!fontIsaac.loadFromFile("upheavtt.ttf"))
-	{
-		std::cout << "Error TTF" << std::endl;
-	}
 
 	rect.setSize(sf::Vector2f(this->width, this->height));
 	rect.setFillColor(color);
@@ -38,9 +41,9 @@ void Button::setButton(int x, int y, int w, int h, std::string text, sf::RenderW
 	this->win = window;
 }
 
-bool Button::OnHover() {
-	if (this->posx <= sf::Mouse::getPosition().x && sf::Mouse::getPosition().x <= (this->posx + this->width)) {
-		if (this->posy <= sf::Mouse::getPosition().y && sf::Mouse::getPosition().y <= (this->posy + this->height)) {
+bool Button::OnHover(sf::RenderWindow* rWin) {
+	if (this->posx <= sf::Mouse::getPosition(*rWin).x && sf::Mouse::getPosition(*rWin).x <= (this->posx + this->width)) {
+		if (this->posy <= sf::Mouse::getPosition(*rWin).y && sf::Mouse::getPosition(*rWin).y <= (this->posy + this->height)) {
 			return true;
 		}
 		else {

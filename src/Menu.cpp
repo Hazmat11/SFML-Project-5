@@ -19,27 +19,31 @@ Menu::~Menu() {
 
 }
 
-void Menu::MenuLoop(sf::RenderWindow* rw) {
+int Menu::MenuLoop(sf::RenderWindow* rw) {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		for (int i = 0; i < buttons.size(); i++) {
-			if (buttons[i].OnHover()) {
+			if (buttons[i].OnHover(rw)) {
 				switch (i) {
 				case 0 :
 					// close window
 					std::cout << "close window" << std::endl;
 					rw->close();
+					return 0;
 					break;
 				case 1 :
 					// play game
 					std::cout << "play" << std::endl;
+					return 1;
 					break;
 				case 2 :
 					// open settings
 					std::cout << "settings" << std::endl;
+					return 0;
 					break;
 				default:
 					// Do a Flip
 					std::cout << "BOB !! DO SOMETHING !!" << std::endl;
+					return 0;
 					break;
 				}
 			}

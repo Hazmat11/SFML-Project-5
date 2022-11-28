@@ -109,6 +109,9 @@
     <Font Include="Sources\upheavtt.ttf">
       <Filter>Fichiers de ressources</Filter>
     </Font>
+    <Font Include="img\IsaacGame.ttf">
+      <Filter>Fichiers de ressources</Filter>
+    </Font>
   </ItemGroup>
   <ItemGroup>
     <None Include="Sources\lavenderTheme.ogg">

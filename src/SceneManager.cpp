@@ -19,7 +19,8 @@ void SceneManager::SetGameManager(sf::Event* event) {
 void SceneManager::manageScene(sf::Event* event) {
 	switch (gm.index) {
 	case MENU :
-		menu->MenuLoop(rWin);
+		gm.index = menu->MenuLoop(rWin);
+		std::cout << gm.index << std::endl;
 		break;
 	case GAME :
 		game.GameLoop();

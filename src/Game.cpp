@@ -1,7 +1,7 @@
 #include "Game.h"
 
 void Game() {
-    sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE, sf::Style::Fullscreen);
+    sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE/*, sf::Style::Fullscreen*/);
     window->setFramerateLimit(60);
     SceneManager sm(window);
     while (window->isOpen())
