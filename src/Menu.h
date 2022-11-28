@@ -14,7 +14,7 @@ public :
 	Menu();
 	Menu(sf::RenderWindow* win);
 	~Menu();
-	void MenuLoop(sf::RenderWindow* rw);
+	int MenuLoop(sf::RenderWindow* rw);
 	void Render(sf::RenderWindow* win);
 private :
 	std::vector<Button> buttons;

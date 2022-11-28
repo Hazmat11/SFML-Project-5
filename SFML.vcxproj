@@ -166,6 +166,7 @@
     <None Include="Sources\lavenderTheme.ogg" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="img\IsaacGame.ttf" />
     <Font Include="Sources\upheavtt.ttf" />
     <Image Include="img\tilesJiggly.png" />
   </ItemGroup>
