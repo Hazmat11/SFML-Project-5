@@ -9,6 +9,7 @@ public :
 	Map map;
 	Ennemies ennemies;
 	Player player;
+	Projectiles projectile;
 
 	InGame();
 	~InGame();

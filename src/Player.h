@@ -31,6 +31,10 @@ public :
 	int playerHP();
 	void playerShoot();
 
+	void playerRender(sf::RenderWindow* win);
+
+	void projectilePosition(sf::Sprite);
+
 	sf::Vector2f returnPos(const int, const int);
 
 	sf::Vector2f playerPosition;

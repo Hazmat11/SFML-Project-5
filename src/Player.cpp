@@ -4,6 +4,7 @@
 Player::Player() {
 	arrangeSprite();
 	setPlayerCollisions();
+	texture.loadFromFile(PIKACHU_TEXTURE_PATH);
 }
 
 Player::~Player() {
@@ -12,34 +13,34 @@ Player::~Player() {
 
 sf::Vector2f Player::returnPos(const int playerX, const int playerY){
 	sf::Vector2f playerPosition = playerSprite.getPosition();
-	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+	//std::cout << playerPosition.x << " " << playerPosition.y << "\n";
 	return playerPosition; 
 }
 
 void Player::movePlayer() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-		playerSprite.move(3.f, 0.f);
+		playerSprite.move(5.f, 0.f);
 		playerSprite.getPosition();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 	{
-		playerSprite.move(-3.f, 0.f);
+		playerSprite.move(-5.f, 0.f);
 		playerSprite.getPosition();
 
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
-		playerSprite.move(0.f, -3.f);
+		playerSprite.move(0.f, -5.f);
 		playerSprite.getPosition();
 
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		playerSprite.move(0.f, 3.f);
+		playerSprite.move(0.f, 5.f);
 		playerSprite.getPosition();
 
 	}
@@ -49,50 +50,46 @@ void Player::movePlayer() {
 
 void Player::playerShoot()
 {
-	Projectiles prj;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && shootTimer > 1)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		shootTimer = 0;
 
-		listeProjectiles.push_back(Projectiles(prj));
+		Projectiles prj;
+		prj.projectileSprite.setPosition(returnPos(0, 0));
 
 		this->direction = RIGHT;
-		projectile.projectileLaunchedRight = true;
-		projectile.projectilePosition();
+
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && shootTimer > 1)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		shootTimer = 0;
 
-		listeProjectiles.push_back(Projectiles(prj));
+		listeProjectiles.push_back(Projectiles(projectile));
 
 		this->direction = LEFT;
-		projectile.projectileLaunchedLeft = true;
-		projectile.projectilePosition();
+
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && shootTimer > 1)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		shootTimer = 0;
 
-		listeProjectiles.push_back(Projectiles(prj));
+		listeProjectiles.push_back(Projectiles(projectile));
 
 		this->direction = UP;
-		projectile.projectileLaunchedUp = true;
-		projectile.projectilePosition();
+
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && shootTimer > 1)		//A faire: incrémenter shootTimer dans la fonction Update
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))		//A faire: incrémenter shootTimer dans la fonction Update
 	{
 		shootTimer = 0;
 
-		listeProjectiles.push_back(Projectiles(prj));
+		listeProjectiles.push_back(Projectiles(projectile));
 
 		this->direction = DOWN;
-		projectile.projectileLaunchedDown = true;
-		projectile.projectilePosition();
+
 	}
 }
 
@@ -103,22 +100,23 @@ int Player::playerHP() {
 
 void Player::playerTexture()
 {
+
 	if (frame < 30) {
 		switch (direction) {
 		default:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 10, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 10, 60, 60));
 			break;
 		case 1:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 140, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 140, 60, 60));
 			break;
 		case 2:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 75, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 75, 60, 60));
 			break;
 		case 3:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 200, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 200, 60, 60));
 			break;
 		case 4:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 10, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(10, 10, 60, 60));
 			break;
 		}
 		playerSprite.setTexture(texture);
@@ -127,19 +125,19 @@ void Player::playerTexture()
 	if (frame < 60 && frame > 29) {
 		switch (direction) {
 		default:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 10, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 10, 60, 60));
 			break;
 		case 1 :
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 140, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 140, 60, 60));
 			break;
 		case 2:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 75, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 75, 60, 60));
 			break;
 		case 3:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 200, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 200, 60, 60));
 			break;
 		case 4:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 10, 60, 60));
+			playerSprite.setTextureRect(sf::IntRect(140, 10, 60, 60));
 			break;
 		}
 		playerSprite.setTexture(texture);
@@ -160,4 +158,16 @@ void Player::arrangeSprite()
 void Player::setPlayerCollisions()
 {
 	playerBox = playerSprite.getGlobalBounds();
+}
+
+void Player::projectilePosition(sf::Sprite projectile)
+{
+	projectile.setPosition(playerPosition.x, playerPosition.y);
+}
+
+void Player::playerRender(sf::RenderWindow* window) 
+{
+	window->draw(playerSprite);
+
+
 }
