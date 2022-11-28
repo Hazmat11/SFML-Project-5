@@ -4,8 +4,8 @@
 #include "SceneManager.h"
 
 
-#define WINDOW_WIDTH 1200
-#define WINDOW_HEIGHT 750
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 #define TITLE std::string("The Binding of Pikachu")
 
 void Game();
