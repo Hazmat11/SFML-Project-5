@@ -62,7 +62,7 @@ void Player::playerShoot()
 		shootTimer = 0;
 
 		Projectiles prj;
-		prj.projectileSprite.setPosition(returnPos(0, 0));
+		prj.projectileSprite.setPosition(returnPos());
 
 		this->direction = RIGHT;
 

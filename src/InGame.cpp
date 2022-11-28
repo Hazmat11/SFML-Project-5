@@ -23,7 +23,7 @@ void InGame::GameLoop() {
 void InGame::Render(sf::RenderWindow* window) {	
 	player.playerHP(window);
 	window->draw(map.actualMap);
-	window->draw(ennemies.ennemiesSprite);
+	window->draw(ennemies->ennemiesSprite);
 
 	player.playerRender(window);
 	projectile.projectileRender(window);

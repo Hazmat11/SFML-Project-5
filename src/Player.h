@@ -36,7 +36,7 @@ public :
 
 	void projectilePosition(sf::Sprite);
 
-	sf::Vector2f returnPos(const int, const int);
+	sf::Vector2f returnPos();
 
 	sf::Vector2f playerPosition;
 	std::vector<Projectiles> listeProjectiles;
