@@ -12,6 +12,9 @@
 
 class SceneManager {
 public :
+
+	Menu menu;
+
 	sf::RenderWindow* rWin;
 
 	SceneManager();
@@ -22,6 +25,5 @@ public :
 	void Draw();
 private :
 	InGame game;
-	Menu* menu;
 	GameManager gm;
 };

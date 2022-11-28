@@ -1,6 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <vector>
+#include "Projectiles.h"
+
 #define RIGHT 1;
 #define LEFT 2;
 #define UP 3;
@@ -11,6 +14,8 @@
 class Player
 {
 public :
+
+	Projectiles projectile;
 
 	Player();
 	~Player();
@@ -30,10 +35,13 @@ public :
 
 	sf::Vector2f playerPosition;
 
+	std::vector<Projectiles> listeProjectiles;
+
 
 private :
 	int maxHP = 4;
 	int frame = 0;
 	int direction;
+	int shootTimer = 0;
 };
 

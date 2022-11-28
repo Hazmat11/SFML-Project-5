@@ -10,22 +10,25 @@ class Projectiles
 {
 public:
 
+
 	Projectiles();
 	~Projectiles();
 
 	sf::Sprite projectileSprite;
 	sf::Texture projectileTexture;
+	sf::FloatRect projectileBox;
 
 	void shootProjectile();
 	void showProjectileTexture();
 	void projectileArrangeSprite();
+	void projectilePosition();
+	void setProjectileCollisions();
 
 	bool projectileLaunchedRight = false;
 	bool projectileLaunchedLeft = false;
 	bool projectileLaunchedUp = false;
 	bool projectileLaunchedDown = false;
 
-	sf::Vector2f projectilePosition;
 
 private:
 

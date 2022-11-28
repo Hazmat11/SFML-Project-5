@@ -42,10 +42,6 @@ void Button::setButton(int x, int y, int w, int h, std::string text, sf::RenderW
 	this->win = window;
 }
 
-void Button::ButtonLoop() {
-	RenderBT();
-}
-
 bool Button::OnHover() {
 	if (this->posx <= sf::Mouse::getPosition().x && sf::Mouse::getPosition().x <= (this->posx + this->width)) {
 		if (this->posy <= sf::Mouse::getPosition().y && sf::Mouse::getPosition().y <= (this->posy + this->height)) {
