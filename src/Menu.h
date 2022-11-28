@@ -12,7 +12,7 @@ public :
 	Menu();
 	Menu(sf::RenderWindow* win);
 	~Menu();
-	void MenuLoop();
+	void MenuLoop(sf::Event* event);
 	void Render(sf::RenderWindow* win);
 private :
 	Button buttons[3] = {quitBT, playBT, setBT};

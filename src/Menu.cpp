@@ -17,11 +17,11 @@ Menu::~Menu() {
 }
 
 void Menu::MenuLoop(sf::Event* event) {
-	if (event->type = sf::Event::KeyPressed) {
+	/*if (event->type = sf::Event::KeyPressed) {
 		for (int i = 0; i < buttons.size(); i++) {
 
 		}
-	}
+	}*/
 }
 
 void Menu::Render(sf::RenderWindow* win) {

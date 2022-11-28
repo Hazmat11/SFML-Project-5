@@ -7,9 +7,10 @@
 class Ennemies
 {
 public:
-	Player player;
+	Player* player;
 
 	Ennemies();
+	Ennemies(Player* p);
 	~Ennemies();
 	void arrangeSprite();
 	void ennemiesTexture();
@@ -22,6 +23,8 @@ public:
 
 private:
 	int frame = 0;
+	int time = 0;
+	bool invincible;
 	
 };
 

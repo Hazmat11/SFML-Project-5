@@ -33,7 +33,7 @@ void SceneManager::Draw() {
 
 	switch (gm.index) {
 	case MENU:
-		menu.Render(gm.rw);
+		menu->Render(gm.rw);
 		break;
 	case GAME:
 		game.Render(gm.rw);

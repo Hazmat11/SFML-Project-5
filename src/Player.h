@@ -28,14 +28,13 @@ public :
 	void playerTexture();
 	void arrangeSprite();
 	void setPlayerCollisions();
-	int playerHP();
+	void playerHP(sf::RenderWindow* window);
 	void playerShoot();
 
-	sf::Vector2f returnPos(const int, const int);
-
+	sf::Vector2f returnPos();
 	sf::Vector2f playerPosition;
-
 	std::vector<Projectiles> listeProjectiles;
+	int HP = 4;
 
 
 private :
