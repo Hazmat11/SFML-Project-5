@@ -16,10 +16,10 @@ void SceneManager::SetGameManager(sf::Event* event) {
 	gm.setGameManager(event, rWin);
 }
 
-void SceneManager::manageScene() {
+void SceneManager::manageScene(sf::Event* event) {
 	switch (gm.index) {
 	case MENU :
-		//menu.MenuLoop();
+		menu->MenuLoop(rWin);
 		break;
 	case GAME :
 		game.GameLoop();

@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "Projectiles.h"
 
 Player::Player() {
 	arrangeSprite();
@@ -11,41 +10,48 @@ Player::~Player() {
 
 }
 
-sf::Vector2f Player::returnPos(const int playerX, const int playerY){
-	sf::Vector2f playerPosition = playerSprite.getPosition();
-	//std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+sf::Vector2f Player::returnPos(){
+	playerPosition = playerSprite.getPosition();
+	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+	playerSprite.setPosition(playerPosition);
 	return playerPosition; 
+}
+
+void Player::wallCollision() {
+	if (playerPosition.x > 1635) {
+		playerSprite.move(-3.f, 0.f);
+	}
+	if (playerPosition.y < 135) {
+		playerSprite.move(0.f, 3.f);
+	}
+	if (playerPosition.x < 175) {
+		playerSprite.move(3.f, 0.f);
+	}
+	if (playerPosition.y > 830) {
+		playerSprite.move(0.f, -3.f);
+	}
 }
 
 void Player::movePlayer() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-		playerSprite.move(5.f, 0.f);
-		playerSprite.getPosition();
+		playerSprite.move(3.f, 0.f);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 	{
-		playerSprite.move(-5.f, 0.f);
-		playerSprite.getPosition();
-
+		playerSprite.move(-3.f, 0.f);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
-		playerSprite.move(0.f, -5.f);
-		playerSprite.getPosition();
-
+		playerSprite.move(0.f, -3.f);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		playerSprite.move(0.f, 5.f);
-		playerSprite.getPosition();
-
+		playerSprite.move(0.f, 3.f);
 	}
-
-
 }
 
 void Player::playerShoot()
@@ -93,8 +99,10 @@ void Player::playerShoot()
 	}
 }
 
-int Player::playerHP() {
-	return 0;
+void Player::playerHP(sf::RenderWindow* window) {
+	if (HP == 0) {
+		window->close();
+	}
 }
 
 

@@ -1,9 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <vector>
 #include <iostream>
 #include <list>
 #include "Button.h"
+#include "GameManager.h"
 
 class Menu {
 public :
@@ -12,10 +14,10 @@ public :
 	Menu();
 	Menu(sf::RenderWindow* win);
 	~Menu();
-	void MenuLoop(sf::Event* event);
+	void MenuLoop(sf::RenderWindow* rw);
 	void Render(sf::RenderWindow* win);
 private :
-	Button buttons[3] = {quitBT, playBT, setBT};
+	std::vector<Button> buttons;
 	Button quitBT;
 	Button playBT;
 	Button setBT;

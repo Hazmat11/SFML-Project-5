@@ -2,7 +2,11 @@
 
 Ennemies::Ennemies() {
 	arrangeSprite();
-	setEnnemiesCollisions();
+}
+
+Ennemies::Ennemies(Player* p) {
+	arrangeSprite();
+	player = p;
 }
 
 Ennemies::~Ennemies() {
@@ -18,27 +22,27 @@ void Ennemies::arrangeSprite()
 void Ennemies::ennemiesTexture() {
 	switch (frame){
 	case 0:
-		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(10, 10, 40, 60));
+		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(0, 0, 40, 40));
 		refreshTexture();
 		break;
 	case 11:
-		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(50, 10, 40, 60));
+		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(40, 0, 40, 40));
 		refreshTexture();
 		break;
 	case 20:
-		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(90, 10, 40, 60));
+		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(80, 0, 40, 40));
 		refreshTexture();
 		break;
 	case 40:
-		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(130, 10, 40, 60));
+		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(125, 0, 40, 40));
 		refreshTexture();
 		break;
 	case 50:
-		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(90, 10, 40, 60));
+		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(80, 0, 40, 40));
 		refreshTexture();
 		break;
 	case 60:
-		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(50, 10, 40, 60));
+		texture.loadFromFile(JIGGLY_TEXTURE_PATH, sf::IntRect(40, 0, 40, 40));
 		refreshTexture();
 		break;
 	}
@@ -53,11 +57,24 @@ void Ennemies::refreshTexture() {
 }
 
 void Ennemies::setEnnemiesCollisions(){	
+
 	sf::FloatRect ennemiesBox = ennemiesSprite.getGlobalBounds();
-	sf::FloatRect playerBox = player.playerSprite.getGlobalBounds();
-	if (ennemiesBox.intersects(playerBox))
+	this->player->playerBox = this->player->playerSprite.getGlobalBounds();
+
+	if (this->player->playerBox.intersects(ennemiesBox))
 	{
-		std::cout << "chiasse";
-		// collision!
+		if (!invincible) {
+			player->HP--;
+			this->player->playerSprite.setColor(sf::Color(255, 255, 255, 128));
+			invincible = true;
+		}
+	}
+	else if (invincible) {
+		time++;
+	}
+	if (time == 60) {
+		invincible = false;
+		time = 0;
+		this->player->playerSprite.setColor(sf::Color(255, 255, 255, 255));
 	}
 }
