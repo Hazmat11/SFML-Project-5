@@ -15,6 +15,22 @@ sf::Vector2f Player::returnPos(){
 	return playerPosition; 
 }
 
+void Player::wallCollision() {
+	returnPos();
+	if (playerPosition.x > 1635) {
+		playerSprite.move(-3.f, 0.f);
+	}
+	if (playerPosition.y < 135) {
+		playerSprite.move(0.f, 3.f);
+	}
+	if (playerPosition.x < 175) {
+		playerSprite.move(3.f, 0.f);
+	}
+	if (playerPosition.y > 830) {
+		playerSprite.move(0.f, -3.f);
+	}
+}
+
 void Player::movePlayer() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
@@ -90,7 +106,7 @@ void Player::playerShoot()
 
 void Player::playerHP(sf::RenderWindow* window) {
 	if (HP == 0) {
-		// do somethings
+		window->close();
 	}
 }
 
@@ -100,7 +116,7 @@ void Player::playerTexture()
 	if (frame < 30) {
 		switch (direction) {
 		default:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 10, 40, 50));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 24, 40, 50));
 			break;
 		case 1:
 			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(10, 140, 40, 50));
@@ -121,7 +137,7 @@ void Player::playerTexture()
 	if (frame < 60 && frame > 29) {
 		switch (direction) {
 		default:
-			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 10, 60, 60));
+			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 24, 60, 60));
 			break;
 		case 1 :
 			texture.loadFromFile(PIKACHU_TEXTURE_PATH, sf::IntRect(140, 140, 60, 60));

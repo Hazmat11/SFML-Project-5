@@ -28,6 +28,7 @@ public :
 	void playerTexture();
 	void arrangeSprite();
 	void setPlayerCollisions();
+	void wallCollision();
 	void playerHP(sf::RenderWindow* window);
 	void playerShoot();
 

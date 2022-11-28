@@ -12,6 +12,7 @@ void InGame::GameLoop() {
 	ennemies->ennemiesTexture();
 	player.playerTexture();
 	player.movePlayer();
+	player.wallCollision();
 	ennemies->setEnnemiesCollisions();
 }
 
