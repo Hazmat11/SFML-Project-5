@@ -10,12 +10,12 @@ Player::~Player() {
 
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
-	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
 	playerSprite.setPosition(playerPosition);
 	return playerPosition; 
 }
 
 void Player::wallCollision() {
+	returnPos();
 	if (playerPosition.x > 1635) {
 		playerSprite.move(-3.f, 0.f);
 	}
