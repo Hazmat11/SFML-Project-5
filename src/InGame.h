@@ -7,7 +7,7 @@
 class InGame {
 public :
 	Map map;
-	Ennemies ennemies;
+	Ennemies* ennemies;
 	Player player;
 
 	InGame();

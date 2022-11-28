@@ -44,7 +44,7 @@ void Menu::MenuLoop(sf::RenderWindow* rw) {
 				}
 			}
 		}
-	}
+	}*/
 }
 
 void Menu::Render(sf::RenderWindow* win) {
