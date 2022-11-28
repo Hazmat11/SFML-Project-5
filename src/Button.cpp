@@ -20,24 +20,20 @@ void Button::setButton(int x, int y, int w, int h, std::string text, sf::RenderW
 		std::cout << "Error TTF" << std::endl;
 	}
 
-	sf::RectangleShape r(sf::Vector2f(this->posx, this->posy));
 	rect.setSize(sf::Vector2f(this->width, this->height));
 	rect.setFillColor(color);
+	rect.setPosition(sf::Vector2f(this->posx, this->posy));
 
-	sf::Text txt;
 	// select the font
-	txt.setFont(fontIsaac);
+	textSfml.setFont(fontIsaac);
 	// set the string to display
-	txt.setString(text);
+	textSfml.setString(text);
 	// set the character size
-	txt.setCharacterSize(24); // in pixels, not points!
+	textSfml.setCharacterSize(24); // in pixels, not points!
 	// set the color
-	txt.setFillColor(sf::Color::White);
+	textSfml.setFillColor(sf::Color::White);
 	// set the text style
 	//textSfml.setStyle(sf::Text::Bold);
-
-	rect = r;
-	textSfml = txt;
 
 	this->win = window;
 }
@@ -47,11 +43,17 @@ bool Button::OnHover() {
 		if (this->posy <= sf::Mouse::getPosition().y && sf::Mouse::getPosition().y <= (this->posy + this->height)) {
 			return true;
 		}
+		else {
+			return false;
+		}
 	}
-	return false;
+	else {
+		return false;
+	}
+	
 }
 
 void Button::RenderBT() {
 	this->win->draw(this->rect);
-	this->win->draw(this->textSfml);
+	//this->win->draw(this->textSfml);
 }
