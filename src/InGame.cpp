@@ -1,6 +1,7 @@
 #include "InGame.h"
 
 InGame::InGame() {
+	projectile.projectileArrangeSprite();
 	ennemies = new Ennemies(&player);
 }
 
@@ -14,11 +15,18 @@ void InGame::GameLoop() {
 	player.movePlayer();
 	player.wallCollision();
 	ennemies->setEnnemiesCollisions();
+	player.playerShoot();
+
+	projectile.showProjectileTexture();
 }
 
 void InGame::Render(sf::RenderWindow* window) {	
 	player.playerHP(window);
 	window->draw(map.actualMap);
-	window->draw(player.playerSprite);
 	window->draw(ennemies->ennemiesSprite);
+
+	player.playerRender(window);
+	projectile.projectileRender(window);
+
+
 }
