@@ -16,7 +16,6 @@ sf::Vector2f Player::returnPos(){
 }
 
 void Player::wallCollision() {
-	returnPos();
 	if (playerPosition.x > 1635) {
 		playerSprite.move(-3.f, 0.f);
 	}
@@ -51,8 +50,6 @@ void Player::movePlayer() {
 	{
 		playerSprite.move(0.f, 3.f);
 	}
-
-
 }
 
 void Player::playerShoot()
