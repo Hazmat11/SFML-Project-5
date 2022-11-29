@@ -10,14 +10,14 @@ public:
 	Player* player;
 	Ennemies ennemies;
 
-	sf::Texture map;
-	sf::Sprite actualMap;
+	sf::Texture texture;
+	sf::Texture spike;
 
-	sf::Texture collision;
-	sf::Sprite actualCollision;
+	sf::Sprite actualMap;
 
 	void spikeMap();
 	void showMap();
+	void longMap();
 	void nextMap();
 
 	Map();
