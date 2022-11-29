@@ -28,4 +28,10 @@ void InGame::Render(sf::RenderWindow* window) {
 	player.playerRender(window);
 	projectile.projectileRender(window);
 
+	for (int i = 0; i < 0; i += 1) {
+
+		window->draw(player.listeProjectiles[i].projectileSprite);
+	}
+
+
 }

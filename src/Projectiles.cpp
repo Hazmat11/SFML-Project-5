@@ -10,6 +10,12 @@ Projectiles::~Projectiles()
 {
 }
 
+Projectiles::Projectiles(float pos_x, float pos_y, float dir_x, float dir_y)
+{
+	projectileSprite.setPosition(pos_x, pos_y);
+	projectileSprite.setScale(sf::Vector2f(4.f, 4.f));
+}
+
 
 
 void Projectiles::setProjectileCollisions()

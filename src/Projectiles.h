@@ -11,7 +11,7 @@ class Projectiles
 public:
 
 	Projectiles();
-	Projectiles(float direction);
+	Projectiles(float pos_x, float pos_y, float dir_x, float dir_y);
 	~Projectiles();
 
 	sf::Sprite projectileSprite;

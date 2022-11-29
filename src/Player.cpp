@@ -60,8 +60,9 @@ void Player::playerShoot()
 	{
 		shootTimer = 0;
 
-		Projectiles prj;
-		prj.projectileSprite.setPosition(returnPos());
+		listeProjectiles.push_back(Projectiles(projectile));
+
+		int r = 1;
 
 		this->direction = RIGHT;
 
@@ -73,6 +74,8 @@ void Player::playerShoot()
 
 		listeProjectiles.push_back(Projectiles(projectile));
 
+		int l = 1;
+
 		this->direction = LEFT;
 
 	}
@@ -83,6 +86,8 @@ void Player::playerShoot()
 
 		listeProjectiles.push_back(Projectiles(projectile));
 
+		int u = 1;
+
 		this->direction = UP;
 
 	}
@@ -92,6 +97,8 @@ void Player::playerShoot()
 		shootTimer = 0;
 
 		listeProjectiles.push_back(Projectiles(projectile));
+
+		int d = 1;
 
 		this->direction = DOWN;
 
@@ -163,11 +170,6 @@ void Player::arrangeSprite()
 {
 	playerSprite.scale(sf::Vector2f(2.3f, 2.3f));
 	playerSprite.setPosition(sf::Vector2f(555.f, 325.f));
-}
-
-void Player::projectilePosition(sf::Sprite projectile)
-{
-	projectile.setPosition(playerPosition.x, playerPosition.y);
 }
 
 void Player::playerRender(sf::RenderWindow* window) 

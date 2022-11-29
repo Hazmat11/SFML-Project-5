@@ -34,13 +34,18 @@ public :
 
 	void playerRender(sf::RenderWindow* win);
 
-	void projectilePosition(sf::Sprite);
-
 	sf::Vector2f returnPos();
 
 	sf::Vector2f playerPosition;
+
 	std::vector<Projectiles> listeProjectiles;
+
 	int HP = 4;
+
+	int r = 0;
+	int l = 0;
+	int u = 0;
+	int d = 0;
 
 
 private :
