@@ -56,8 +56,7 @@ void Ennemies::refreshTexture() {
 	ennemiesSprite.setTexture(texture);
 }
 
-void Ennemies::setEnnemiesCollisions(){	
-
+void Ennemies::setEnnemiesCollisions(){
 	sf::FloatRect ennemiesBox = ennemiesSprite.getGlobalBounds();
 	this->player->playerBox = this->player->playerSprite.getGlobalBounds();
 
@@ -77,4 +76,8 @@ void Ennemies::setEnnemiesCollisions(){
 		time = 0;
 		this->player->playerSprite.setColor(sf::Color(255, 255, 255, 255));
 	}
+}
+
+void Ennemies::playerTakeDamage() {
+	
 }

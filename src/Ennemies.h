@@ -16,6 +16,7 @@ public:
 	void ennemiesTexture();
 	void refreshTexture();
 	void setEnnemiesCollisions();
+	void playerTakeDamage();
 
 
 	sf::Sprite ennemiesSprite;

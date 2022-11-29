@@ -11,7 +11,8 @@ Player::~Player() {
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
-	return playerPosition; 
+	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+	return playerPosition;
 }
 
 void Player::wallCollision() {

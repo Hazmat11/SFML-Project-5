@@ -6,9 +6,10 @@
 
 class InGame {
 public :
-	Map map;
+	
 	Ennemies* ennemies;
 	Player player;
+	Map* map;
 	Projectiles projectile;
 
 	InGame();

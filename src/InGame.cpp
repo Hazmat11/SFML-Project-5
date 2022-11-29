@@ -2,6 +2,7 @@
 
 InGame::InGame() {
 	ennemies = new Ennemies(&player);
+	map = new Map(&player);
 }
 
 InGame::~InGame() {
