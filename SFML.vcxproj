@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Image Include="img\menu.png" />
     <Image Include="Sources\pikachu.png" />
   </ItemGroup>
   <ItemGroup>
@@ -166,9 +167,11 @@
     <None Include="Sources\lavenderTheme.ogg" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="img\IsaacGame.ttf" />
-    <Font Include="Sources\upheavtt.ttf" />
     <Image Include="img\tilesJiggly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="IsaacGame.ttf" />
+    <Font Include="upheavtt.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
