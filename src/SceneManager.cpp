@@ -22,7 +22,7 @@ void SceneManager::manageScene(sf::Event* event) {
 		gm.index = menu->MenuLoop(rWin);
 		break;
 	case GAME :
-		game.GameLoop();
+		game.GameLoop(rWin);
 		break;
 	default :
 		std::cout << "Error Scene !" << std::endl;

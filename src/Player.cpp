@@ -6,7 +6,6 @@ Player::Player() {
 }
 
 Player::~Player() {
-
 }
 
 sf::Vector2f Player::returnPos(){
@@ -59,11 +58,8 @@ void Player::playerShoot()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		shootTimer = 0;
-
-		listeProjectiles.push_back(Projectiles(projectile));
-
-		int r = 1;
-
+		Projectiles projo(playerPosition.x, playerPosition.y, 1, 0);
+		projos.push_back(projo);
 		this->direction = RIGHT;
 
 	}
@@ -71,11 +67,8 @@ void Player::playerShoot()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		shootTimer = 0;
-
-		listeProjectiles.push_back(Projectiles(projectile));
-
-		int l = 1;
-
+		Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, -1, 0);
+		projos.push_back(projo);
 		this->direction = LEFT;
 
 	}
@@ -83,11 +76,8 @@ void Player::playerShoot()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		shootTimer = 0;
-
-		listeProjectiles.push_back(Projectiles(projectile));
-
-		int u = 1;
-
+		Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, -1);
+		projos.push_back(projo);
 		this->direction = UP;
 
 	}
@@ -95,11 +85,8 @@ void Player::playerShoot()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))		//A faire: incrémenter shootTimer dans la fonction Update
 	{
 		shootTimer = 0;
-
-		listeProjectiles.push_back(Projectiles(projectile));
-
-		int d = 1;
-
+		Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, 1);
+		projos.push_back(projo);
 		this->direction = DOWN;
 
 	}
@@ -113,7 +100,6 @@ void Player::playerHP(sf::RenderWindow* window) {
 		window->close();
 	}
 }
-
 
 void Player::playerTexture()
 {
@@ -172,7 +158,23 @@ void Player::arrangeSprite()
 	playerSprite.setPosition(sf::Vector2f(555.f, 325.f));
 }
 
+void Player::playerLoop(sf::RenderWindow* window) {
+	playerPosition = playerSprite.getPosition();
+	this->movePlayer();
+	this->playerShoot();
+	for (int i = 0; i < projos.size(); i++) {
+		projos[i].projoLoop();
+	}
+	this->playerTexture();
+	this->wallCollision();
+	this->playerHP(window);
+}
+
 void Player::playerRender(sf::RenderWindow* window) 
 {
 	window->draw(playerSprite);
+
+	for (int i = 0; i < projos.size(); i++) {
+		projos[i].projectileRender(window);
+	}
 }

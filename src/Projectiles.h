@@ -14,12 +14,6 @@ public:
 	Projectiles(float pos_x, float pos_y, float dir_x, float dir_y);
 	~Projectiles();
 
-	sf::Sprite projectileSprite;
-	sf::Texture projectileTexture;
-	sf::FloatRect projectileBox;
-
-	void showProjectileTexture();
-	void projectileArrangeSprite();
 	void setProjectileCollisions();
 
 	void projectileRender(sf::RenderWindow* win);
@@ -27,9 +21,16 @@ public:
 
 
 private:
+	sf::Sprite projectileSprite;
+	sf::Texture projectileTexture;
+	sf::FloatRect projectileBox;
+	sf::Vector2f Dir;
 
+	int lifeTime = 60;
+	int actualTL = 0;
+	float speed = 5;
 	int a = 0;
 
-
+	void showProjectileTexture();
 };
 

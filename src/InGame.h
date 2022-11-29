@@ -13,7 +13,7 @@ public :
 
 	InGame();
 	~InGame();
-	void GameLoop();
+	void GameLoop(sf::RenderWindow* win);
 	void Render(sf::RenderWindow* win);
 private :
 

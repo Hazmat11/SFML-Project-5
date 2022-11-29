@@ -14,15 +14,9 @@
 class Player
 {
 public :
-
-	Projectiles projectile;
-
 	Player();
 	~Player();
-
-	sf::Sprite playerSprite;
-	sf::Texture texture;
-	sf::FloatRect playerBox;
+	sf::Vector2f returnPos();
 
 	void movePlayer();
 	void playerTexture();
@@ -31,24 +25,19 @@ public :
 	void wallCollision();
 	void playerHP(sf::RenderWindow* window);
 	void playerShoot();
-
 	void playerRender(sf::RenderWindow* win);
-
-	sf::Vector2f returnPos();
+	void playerLoop(sf::RenderWindow* window);
 
 	sf::Vector2f playerPosition;
-
-	std::vector<Projectiles> listeProjectiles;
+	sf::Sprite playerSprite;
+	sf::Texture texture;
+	sf::FloatRect playerBox;
 
 	int HP = 4;
 
-	int r = 0;
-	int l = 0;
-	int u = 0;
-	int d = 0;
-
-
 private :
+	std::vector<Projectiles> projos;
+
 	int maxHP = 4;
 	int frame = 0;
 	int direction;
