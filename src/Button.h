@@ -7,13 +7,14 @@ class Button {
 public :
 	Button();
 	~Button();
-	void setButton(int x, int y, int w, int h, std::string txt, sf::RenderWindow* window, const sf::Color& color);
+	void setButton(int x, int y, int w, int h, std::string text,
+		int fontSize, float angle, int r, int g, int b, int a, 
+		sf::RenderWindow* window, const sf::Color& color);
 	bool OnHover(sf::RenderWindow* rWin);
 	void RenderBT();
 
 private :
 	sf::Font fontIsaac;
-	sf::Font fontTitle;
 
 	sf::RectangleShape rect;
 	sf::Text textSfml;

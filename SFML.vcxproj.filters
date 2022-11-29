@@ -76,6 +76,9 @@
     <ClCompile Include="src\InGame.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <Image Include="img\menu.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Button.h">

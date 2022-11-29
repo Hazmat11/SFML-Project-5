@@ -1,13 +1,7 @@
 #include "Button.h"
 
-Button::Button() {
-	
-	if (!this->fontIsaac.loadFromFile("upheavtt.ttf"))
-	{
-		std::cout << "Error TTF Regular Font" << std::endl;
-	}
-	
-	if (!this->fontTitle.loadFromFile("IsaacGame.ttf"))
+Button::Button() {	
+	if (!this->fontIsaac.loadFromFile("IsaacGame.ttf"))
 	{
 		std::cout << "Error TTF Title Font" << std::endl;
 	}
@@ -17,7 +11,7 @@ Button::~Button() {
 
 }
 
-void Button::setButton(int x, int y, int w, int h, std::string text, sf::RenderWindow* window, const sf::Color& color) {
+void Button::setButton(int x, int y, int w, int h, std::string text, int fontSize, float angle, int r, int g, int b, int a, sf::RenderWindow* window, const sf::Color& color) {
 	this->posx = x;
 	this->posy = y;
 	this->width = w;
@@ -31,12 +25,13 @@ void Button::setButton(int x, int y, int w, int h, std::string text, sf::RenderW
 	textSfml.setFont(fontIsaac);
 	// set position
 	textSfml.setPosition(sf::Vector2f(this->posx, this->posy));
+	textSfml.setRotation(angle);
 	// set the string to display
 	textSfml.setString(text);
 	// set the character size
-	textSfml.setCharacterSize(24); // in pixels, not points!
+	textSfml.setCharacterSize(fontSize); // in pixels, not points!
 	// set the color
-	textSfml.setFillColor(sf::Color::White);
+	textSfml.setFillColor(sf::Color(r, g, b, a));
 
 	this->win = window;
 }
