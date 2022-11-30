@@ -3,6 +3,8 @@
 Player::Player() {
 	arrangeSprite();
 	texture.loadFromFile(PIKACHU_TEXTURE_PATH);
+
+	health = new UIPlayer(this->maxHP);
 }
 
 Player::~Player() {
@@ -11,7 +13,7 @@ Player::~Player() {
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
-	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+	std::cout << playerSprite.getPosition().x << " " << playerSprite.getPosition().y << "\n";
 	return playerPosition;
 }
 
@@ -186,6 +188,7 @@ void Player::arrangeSprite()
 
 void Player::playerLoop(sf::RenderWindow* window) {
 	playerPosition = playerSprite.getPosition();
+	this->health->updateHealth(this->HP);
 	this->movePlayer();
 	this->playerShoot();
 	for (int i = 0; i < projos.size(); i++) {
@@ -198,6 +201,7 @@ void Player::playerLoop(sf::RenderWindow* window) {
 
 void Player::playerRender(sf::RenderWindow* window) 
 {
+	health->DisplayHealth(window);
 	window->draw(playerSprite);
 
 	for (int i = 0; i < projos.size(); i++) {
