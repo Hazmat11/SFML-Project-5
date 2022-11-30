@@ -44,7 +44,7 @@ private :
 	int maxHP = 4;
 	int frame = 0;
 	int direction;
-	int shootTimer = 60;
+	int shootTimer = 30;
 
 };
 
