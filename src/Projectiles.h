@@ -11,25 +11,27 @@ class Projectiles
 public:
 
 	Projectiles();
-	Projectiles(float direction);
+	Projectiles(float pos_x, float pos_y, float dir_x, float dir_y);
 	~Projectiles();
 
-	sf::Sprite projectileSprite;
-	sf::Texture projectileTexture;
-	sf::FloatRect projectileBox;
-
-	void showProjectileTexture();
-	void projectileArrangeSprite();
 	void setProjectileCollisions();
 
 	void projectileRender(sf::RenderWindow* win);
 	void projoLoop();
 
+	int projoLifeTime = 300;
+	int projoActualTL = 0;
+
 
 private:
+	sf::Sprite projectileSprite;
+	sf::Texture projectileTexture;
+	sf::FloatRect projectileBox;
+	sf::Vector2f Dir;
 
+	float speed = 5;
 	int a = 0;
 
-
+	void showProjectileTexture();
 };
 

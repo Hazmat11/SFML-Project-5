@@ -1,31 +1,22 @@
 #include "InGame.h"
 
 InGame::InGame() {
-	projectile.projectileArrangeSprite();
 	ennemies = new Ennemies(&player);
+	map = new Map(&player);
 }
 
 InGame::~InGame() {
 
 }
 
-void InGame::GameLoop() {
+void InGame::GameLoop(sf::RenderWindow* win) {
+	player.playerLoop(win);
 	ennemies->ennemiesTexture();
-	player.playerTexture();
-	player.movePlayer();
-	player.wallCollision();
 	ennemies->setEnnemiesCollisions();
-	player.playerShoot();
-
-	projectile.showProjectileTexture();
 }
 
 void InGame::Render(sf::RenderWindow* window) {	
-	player.playerHP(window);
-	window->draw(map.actualMap);
+	window->draw(map->actualMap);
 	window->draw(ennemies->ennemiesSprite);
-
 	player.playerRender(window);
-	projectile.projectileRender(window);
-
 }

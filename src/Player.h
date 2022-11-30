@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
+#include <list>
 #include "Projectiles.h"
 
 #define RIGHT 1;
@@ -14,15 +15,11 @@
 class Player
 {
 public :
-
-	Projectiles projectile;
-
 	Player();
 	~Player();
+	sf::Vector2f returnPos();
 
-	sf::Sprite playerSprite;
-	sf::Texture texture;
-	sf::FloatRect playerBox;
+	Projectiles projectile;
 
 	void movePlayer();
 	void playerTexture();
@@ -31,22 +28,23 @@ public :
 	void wallCollision();
 	void playerHP(sf::RenderWindow* window);
 	void playerShoot();
-
 	void playerRender(sf::RenderWindow* win);
-
-	void projectilePosition(sf::Sprite);
-
-	sf::Vector2f returnPos();
+	void playerLoop(sf::RenderWindow* window);
 
 	sf::Vector2f playerPosition;
-	std::vector<Projectiles> listeProjectiles;
+	sf::Sprite playerSprite;
+	sf::Texture texture;
+	sf::FloatRect playerBox;
+
 	int HP = 4;
 
-
 private :
+	std::vector<Projectiles> projos;
+
 	int maxHP = 4;
 	int frame = 0;
 	int direction;
-	int shootTimer = 0;
+	int shootTimer = 60;
+
 };
 

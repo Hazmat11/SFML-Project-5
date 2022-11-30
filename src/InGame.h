@@ -6,14 +6,15 @@
 
 class InGame {
 public :
-	Map map;
+	
 	Ennemies* ennemies;
 	Player player;
+	Map* map;
 	Projectiles projectile;
 
 	InGame();
 	~InGame();
-	void GameLoop();
+	void GameLoop(sf::RenderWindow* win);
 	void Render(sf::RenderWindow* win);
 private :
 

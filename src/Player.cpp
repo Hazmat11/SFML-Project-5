@@ -6,13 +6,13 @@ Player::Player() {
 }
 
 Player::~Player() {
-
 }
 
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
-	return playerPosition; 
+	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+	return playerPosition;
 }
 
 void Player::wallCollision() {
@@ -58,44 +58,59 @@ void Player::playerShoot()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		shootTimer = 0;
-
-		Projectiles prj;
-		prj.projectileSprite.setPosition(returnPos());
-
+		if (shootTimer >= 60)
+		{
+			shootTimer = 0;
+			Projectiles projo(playerPosition.x, playerPosition.y, 1, 0);
+			projos.push_back(projo);
+		}
 		this->direction = RIGHT;
-
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		shootTimer = 0;
-
-		listeProjectiles.push_back(Projectiles(projectile));
-
+		if (shootTimer >= 60)
+		{
+			shootTimer = 0;
+			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, -1, 0);
+			projos.push_back(projo);
+		}
 		this->direction = LEFT;
-
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		shootTimer = 0;
-
-		listeProjectiles.push_back(Projectiles(projectile));
-
+		if (shootTimer >= 60)
+		{
+			shootTimer = 0;
+			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, -1);
+			projos.push_back(projo);
+		}
 		this->direction = UP;
 
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))		//A faire: incrémenter shootTimer dans la fonction Update
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		shootTimer = 0;
-
-		listeProjectiles.push_back(Projectiles(projectile));
-
+		if (shootTimer >= 60)
+		{
+			shootTimer = 0;
+			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, 1);
+			projos.push_back(projo);
+		}
 		this->direction = DOWN;
-
 	}
+
+	if (projos.size() >= 1 && projectile.projoActualTL >= projectile.projoLifeTime) {
+		projos.erase(projos.begin());
+		projectile.projoActualTL = 0;
+	}
+	else {
+		projectile.projoActualTL++;
+	}
+
+	shootTimer++;
+
 }
 
 void Player::playerHP(sf::RenderWindow* window) {
@@ -106,7 +121,6 @@ void Player::playerHP(sf::RenderWindow* window) {
 		window->close();
 	}
 }
-
 
 void Player::playerTexture()
 {
@@ -165,12 +179,23 @@ void Player::arrangeSprite()
 	playerSprite.setPosition(sf::Vector2f(555.f, 325.f));
 }
 
-void Player::projectilePosition(sf::Sprite projectile)
-{
-	projectile.setPosition(playerPosition.x, playerPosition.y);
+void Player::playerLoop(sf::RenderWindow* window) {
+	playerPosition = playerSprite.getPosition();
+	this->movePlayer();
+	this->playerShoot();
+	for (int i = 0; i < projos.size(); i++) {
+		projos[i].projoLoop();
+	}
+	this->playerTexture();
+	this->wallCollision();
+	this->playerHP(window);
 }
 
 void Player::playerRender(sf::RenderWindow* window) 
 {
 	window->draw(playerSprite);
+
+	for (int i = 0; i < projos.size(); i++) {
+		projos[i].projectileRender(window);
+	}
 }

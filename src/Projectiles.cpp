@@ -8,9 +8,17 @@ Projectiles::Projectiles()
 
 Projectiles::~Projectiles()
 {
+
 }
 
+Projectiles::Projectiles(float pos_x, float pos_y, float dir_x, float dir_y)
+{
+	projectileSprite.setPosition(pos_x, pos_y);
+	projectileSprite.setScale(sf::Vector2f(4.f, 4.f));
 
+	Dir.x = dir_x;
+	Dir.y = dir_y;
+}
 
 void Projectiles::setProjectileCollisions()
 {
@@ -35,19 +43,13 @@ void Projectiles::showProjectileTexture()
 	a++;
 }
 
-void Projectiles::projectileArrangeSprite()
-{
-	projectileSprite.scale(sf::Vector2f(4.f, 4.f));
-}
-
 void Projectiles::projoLoop()
 {
-
+	projectileSprite.move(Dir* speed);
 }
 
 void Projectiles::projectileRender(sf::RenderWindow* window) 
 {
-	//window->draw(projectileSprite);
-
-
+	this->showProjectileTexture();
+	window->draw(projectileSprite);
 }
