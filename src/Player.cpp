@@ -18,38 +18,38 @@ sf::Vector2f Player::returnPos(){
 void Player::wallCollision() {
 	returnPos();
 	if (playerPosition.x > 1635) {
-		playerSprite.move(-3.f, 0.f);
+		playerSprite.move(-5.f, 0.f);
 	}
 	if (playerPosition.y < 135) {
-		playerSprite.move(0.f, 3.f);
+		playerSprite.move(0.f, 5.f);
 	}
 	if (playerPosition.x < 175) {
-		playerSprite.move(3.f, 0.f);
+		playerSprite.move(5.f, 0.f);
 	}
 	if (playerPosition.y > 830) {
-		playerSprite.move(0.f, -3.f);
+		playerSprite.move(0.f, -5.f);
 	}
 }
 
 void Player::movePlayer() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-		playerSprite.move(3.f, 0.f);
+		playerSprite.move(5.f, 0.f);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 	{
-		playerSprite.move(-3.f, 0.f);
+		playerSprite.move(-5.f, 0.f);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
-		playerSprite.move(0.f, -3.f);
+		playerSprite.move(0.f, -5.f);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		playerSprite.move(0.f, 3.f);
+		playerSprite.move(0.f, 5.f);
 	}
 }
 
@@ -61,7 +61,7 @@ void Player::playerShoot()
 		if (shootTimer >= 60)
 		{
 			shootTimer = 0;
-			Projectiles projo(playerPosition.x, playerPosition.y, 1, 0);
+			Projectiles projo(playerPosition.x, playerPosition.y + 20, 1, 0);
 			projos.push_back(projo);
 		}
 		this->direction = RIGHT;
@@ -72,7 +72,7 @@ void Player::playerShoot()
 		if (shootTimer >= 60)
 		{
 			shootTimer = 0;
-			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, -1, 0);
+			Projectiles projo(playerSprite.getPosition().x + 15, playerSprite.getPosition().y + 20, -1, 0);
 			projos.push_back(projo);
 		}
 		this->direction = LEFT;
@@ -83,7 +83,7 @@ void Player::playerShoot()
 		if (shootTimer >= 60)
 		{
 			shootTimer = 0;
-			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, -1);
+			Projectiles projo(playerSprite.getPosition().x + 30, playerSprite.getPosition().y + 20, 0, -1);
 			projos.push_back(projo);
 		}
 		this->direction = UP;
@@ -95,19 +95,24 @@ void Player::playerShoot()
 		if (shootTimer >= 60)
 		{
 			shootTimer = 0;
-			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, 1);
+			Projectiles projo(playerSprite.getPosition().x + 30, playerSprite.getPosition().y + 40, 0, 1);
 			projos.push_back(projo);
 		}
 		this->direction = DOWN;
 	}
 
-	if (projos.size() >= 1 && projectile.projoActualTL >= projectile.projoLifeTime) {
-		projos.erase(projos.begin());
-		projectile.projoActualTL = 0;
+	for (int i = 0; i < projos.size(); i += 1)
+	{
+		if (projos[i].projoActualTL >= projos[i].projoLifeTime) {
+			std::cout << "erase";
+			projos.erase(projos.begin() + i);
+		}
+		else {
+			projos[i].projoActualTL++;
+		}
 	}
-	else {
-		projectile.projoActualTL++;
-	}
+
+
 
 	shootTimer++;
 

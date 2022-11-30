@@ -31,7 +31,7 @@ private:
 	sf::Texture projectileTexture;
 	sf::Vector2f Dir;
 
-	float speed = 5;
+	float speed = 10;
 	int a = 0;
 
 	void showProjectileTexture();
