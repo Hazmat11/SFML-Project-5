@@ -6,6 +6,7 @@ Map::Map() {
 
 Map::Map(Player* p) {
 	showMap();
+	longMap();
 	player = p;
 }
 
@@ -15,21 +16,25 @@ Map::~Map() {
 
 void Map::showMap()
 {
-	texture.loadFromFile("img/map_2.png");
-	actualMap.setTexture(texture);
+	map.loadFromFile("img/map_2.png");
+	actualMap.setTexture(map);
+}
+
+void Map::mapLoop() {
+	nextMap();
 }
 
 void Map::nextMap()
 {
 	if (this->player->playerBox.intersects(sf::FloatRect(900, 130, 100, 50))) {
-		texture.loadFromFile("img/spikemap.png");
-		actualMap.setTexture(texture);
+		map.loadFromFile("img/spikemap.png");
+		actualMap.setTexture(map);
 		this->player->playerSprite.setPosition(sf::Vector2f(885.f, 830.f));
 		currentMap = 1;
 	}
 	if (this->player->playerBox.intersects(sf::FloatRect(177, 400, 50, 100))) {
-		texture.loadFromFile("img/longroom.png");
-		actualMap.setTexture(texture);
+		map.loadFromFile("img/longroom.png");
+		actualMap.setTexture(map);
 		this->player->playerSprite.setPosition(sf::Vector2f(1635.f, 527.f));
 		currentMap = 2;
 	}
@@ -58,7 +63,8 @@ void Map::spikeMap() {
 
 void Map::longMap() {
 	if (currentMap == 2) {
-		spike.loadFromFile("img/spikes.png", sf::IntRect(900, 500, 32, 32));
-		actualMap.setTexture(spike);
+		spike.loadFromFile("img/spikes.png");
+		object.setPosition(900.f, 500.f);
+		object.setTexture(spike);
 	}
 }
