@@ -5,14 +5,28 @@ InGame::InGame() {
 	map = new Map(&player);
 }
 
+void InGame::projCollision() {
+	if (player.shoot == true) {
+		projectile->projectileBox = projectile->projectileSprite.getGlobalBounds();
+		ennemies->ennemiesBox = ennemies->ennemiesSprite.getGlobalBounds();
+		if (projectile->projectileBox.intersects(ennemies->ennemiesBox)) {
+		
+		}
+	}
+	else {
+	}
+}
+
 InGame::~InGame() {
 
 }
 
 void InGame::GameLoop(sf::RenderWindow* win) {
 	player.playerLoop(win);
-	ennemies->ennemiesLoop();
+	ennemies->ennemiesTexture();
+	ennemies->setEnnemiesCollisions();
 	map->mapLoop();
+	projCollision();
 }
 
 void InGame::Render(sf::RenderWindow* window) {	

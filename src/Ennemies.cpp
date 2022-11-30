@@ -1,6 +1,7 @@
 #include "Ennemies.h"
 
 Ennemies::Ennemies() {
+	ennemiesBox = ennemiesSprite.getGlobalBounds();
 }
 
 Ennemies::Ennemies(Player* p) {
@@ -20,7 +21,7 @@ Ennemies::~Ennemies() {
 void Ennemies::ennemiesLoop() {
 	ennemiesTexture();
 	setEnnemiesCollisions();
-	takeDamage();
+	//takeDamage();
 }
 
 void Ennemies::arrangeSprite()
@@ -67,7 +68,6 @@ void Ennemies::refreshTexture() {
 }
 
 void Ennemies::setEnnemiesCollisions(){
-	ennemiesBox = ennemiesSprite.getGlobalBounds();
 	this->player->playerBox = this->player->playerSprite.getGlobalBounds();
 
 	if (this->player->playerBox.intersects(ennemiesBox))

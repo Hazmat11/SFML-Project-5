@@ -1,11 +1,8 @@
 #pragma once
 #include <iostream>
-
 #include <SFML/Graphics.hpp>
 
 #define PROJECTILE_TEXTURE_PATH "img/boule_elek.png"
-
-
 
 class Projectiles
 {
@@ -16,6 +13,7 @@ public:
 	~Projectiles();
 
 	void setProjectileCollisions();
+	void projCollision();
 
 	void projectileRender(sf::RenderWindow* win);
 	void projoLoop();

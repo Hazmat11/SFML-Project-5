@@ -1,7 +1,5 @@
 #include "Projectiles.h"
 
-
-
 Projectiles::Projectiles()
 {
 }
@@ -25,17 +23,18 @@ void Projectiles::showProjectileTexture()
 	projectileTexture.loadFromFile(PROJECTILE_TEXTURE_PATH);
 
 	if (a < 20) {
-
 		projectileSprite.setTextureRect(sf::IntRect(0, 0, 8, 8));
-	} else if (a < 40 && a > 19) {
+	} 
+	if (a < 40 && a > 19) {
 		projectileSprite.setTextureRect(sf::IntRect(8, 0, 8, 8));
-	} else if (a < 60 && a > 39) {
+	}
+	if (a < 60 && a > 39) {
 		projectileSprite.setTextureRect(sf::IntRect(0, 8, 8, 8));
-	} else if (a == 60) {
+	} 
+	if (a == 60) {
 		a = 0;
 	}
 	projectileSprite.setTexture(projectileTexture);
-	a++;
 }
 
 void Projectiles::projoLoop()
