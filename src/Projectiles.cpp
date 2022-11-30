@@ -43,8 +43,6 @@ void Projectiles::projectileArrangeSprite()
 void Projectiles::projoLoop()
 {
 
-
-
 }
 
 void Projectiles::projectileRender(sf::RenderWindow* window) 
