@@ -20,11 +20,6 @@ Projectiles::Projectiles(float pos_x, float pos_y, float dir_x, float dir_y)
 	Dir.y = dir_y;
 }
 
-void Projectiles::setProjectileCollisions()
-{
-	projectileBox = projectileSprite.getGlobalBounds();
-}
-
 void Projectiles::showProjectileTexture()
 {
 	projectileTexture.loadFromFile(PROJECTILE_TEXTURE_PATH);
@@ -46,10 +41,18 @@ void Projectiles::showProjectileTexture()
 void Projectiles::projoLoop()
 {
 	projectileSprite.move(Dir* speed);
+	returnPos();
 }
 
 void Projectiles::projectileRender(sf::RenderWindow* window) 
 {
 	this->showProjectileTexture();
 	window->draw(projectileSprite);
+}
+
+sf::Vector2f Projectiles::returnPos() {
+	projPos = projectileSprite.getPosition();
+	projectileSprite.setPosition(projPos);
+	std::cout << "projPos: " << projPos.x << " " << projPos.y << "\n";
+	return projPos;
 }

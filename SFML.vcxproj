@@ -145,6 +145,7 @@
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\Projectiles.h" />
     <ClInclude Include="src\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>

@@ -65,6 +65,11 @@ void Map::longMap() {
 	if (currentMap == 2) {
 		spike.loadFromFile("img/spikes.png");
 		object.setPosition(900.f, 500.f);
+		object.setScale(2, 2);
 		object.setTexture(spike);
+		sf::FloatRect spikeBox = object.getGlobalBounds();
+		if (this->player->playerBox.intersects(spikeBox)) {
+			std::cout << "merde";
+		}
 	}
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 #include <SFML/Graphics.hpp>
 
@@ -21,12 +22,13 @@ public:
 
 	int projoLifeTime = 300;
 	int projoActualTL = 0;
-
+	sf::FloatRect projectileBox;
+	sf::Sprite projectileSprite;
+	sf::Vector2f returnPos();
+	sf::Vector2f projPos;
 
 private:
-	sf::Sprite projectileSprite;
 	sf::Texture projectileTexture;
-	sf::FloatRect projectileBox;
 	sf::Vector2f Dir;
 
 	float speed = 5;

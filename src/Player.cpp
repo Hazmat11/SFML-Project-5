@@ -11,7 +11,7 @@ Player::~Player() {
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
-	std::cout << playerPosition.x << " " << playerPosition.y << "\n";
+	std::cout << "playerPos: " << playerPosition.x << " " << playerPosition.y << "\n";
 	return playerPosition;
 }
 
