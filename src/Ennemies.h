@@ -17,6 +17,9 @@ public:
 	void refreshTexture();
 	void setEnnemiesCollisions();
 	void playerTakeDamage();
+	void moveEnemyX();
+	void moveEnemyY();
+	void enemyLoop();
 
 
 	sf::Sprite ennemiesSprite;
@@ -26,6 +29,7 @@ private:
 	int frame = 0;
 	int time = 0;
 	bool invincible;
-	
+	int enemySpeed = 3;
+
 };
 

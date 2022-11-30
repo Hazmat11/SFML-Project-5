@@ -81,3 +81,43 @@ void Ennemies::setEnnemiesCollisions(){
 void Ennemies::playerTakeDamage() {
 	
 }
+
+void Ennemies::moveEnemyX()
+{
+	int enemyX = ennemiesSprite.getPosition().x;
+	int enemyY = ennemiesSprite.getPosition().y;
+
+	int xdistance = player->playerSprite.getPosition().x - ennemiesSprite.getPosition().x;
+	
+	if (xdistance > 0)
+	{
+		ennemiesSprite.setPosition(enemyX + 2, enemyY);
+	}
+	else if (xdistance < 0) {
+		ennemiesSprite.setPosition(enemyX - 2, enemyY);
+	}
+
+}
+
+void Ennemies::moveEnemyY()
+{
+	int enemyX = ennemiesSprite.getPosition().x;
+	int enemyY = ennemiesSprite.getPosition().y;
+
+	int ydistance = player->playerSprite.getPosition().y - ennemiesSprite.getPosition().y;
+
+	if (ydistance > 0)
+	{
+		ennemiesSprite.setPosition(enemyX, enemyY + 2);
+	}
+	else if (ydistance < 0) {
+		ennemiesSprite.setPosition(enemyX, enemyY - 2);
+	}
+
+}
+
+void Ennemies::enemyLoop()
+{
+	this->moveEnemyX();
+	this->moveEnemyY();
+}
