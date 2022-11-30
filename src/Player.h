@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
+#include <list>
 #include "Projectiles.h"
 
 #define RIGHT 1;
@@ -17,6 +18,8 @@ public :
 	Player();
 	~Player();
 	sf::Vector2f returnPos();
+
+	Projectiles projectile;
 
 	void movePlayer();
 	void playerTexture();
@@ -41,6 +44,7 @@ private :
 	int maxHP = 4;
 	int frame = 0;
 	int direction;
-	int shootTimer = 0;
+	int shootTimer = 60;
+
 };
 

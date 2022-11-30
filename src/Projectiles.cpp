@@ -46,12 +46,6 @@ void Projectiles::showProjectileTexture()
 void Projectiles::projoLoop()
 {
 	projectileSprite.move(Dir* speed);
-	if (actualTL == lifeTime) {
-		delete this;
-	}
-	else {
-		actualTL++;
-	}
 }
 
 void Projectiles::projectileRender(sf::RenderWindow* window) 

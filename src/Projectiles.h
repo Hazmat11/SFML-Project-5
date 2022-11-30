@@ -19,6 +19,9 @@ public:
 	void projectileRender(sf::RenderWindow* win);
 	void projoLoop();
 
+	int projoLifeTime = 300;
+	int projoActualTL = 0;
+
 
 private:
 	sf::Sprite projectileSprite;
@@ -26,8 +29,6 @@ private:
 	sf::FloatRect projectileBox;
 	sf::Vector2f Dir;
 
-	int lifeTime = 60;
-	int actualTL = 0;
 	float speed = 5;
 	int a = 0;
 

@@ -58,39 +58,59 @@ void Player::playerShoot()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		shootTimer = 0;
-		Projectiles projo(playerPosition.x, playerPosition.y, 1, 0);
-		projos.push_back(projo);
+		if (shootTimer >= 60)
+		{
+			shootTimer = 0;
+			Projectiles projo(playerPosition.x, playerPosition.y, 1, 0);
+			projos.push_back(projo);
+		}
 		this->direction = RIGHT;
-
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		shootTimer = 0;
-		Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, -1, 0);
-		projos.push_back(projo);
+		if (shootTimer >= 60)
+		{
+			shootTimer = 0;
+			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, -1, 0);
+			projos.push_back(projo);
+		}
 		this->direction = LEFT;
-
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		shootTimer = 0;
-		Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, -1);
-		projos.push_back(projo);
+		if (shootTimer >= 60)
+		{
+			shootTimer = 0;
+			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, -1);
+			projos.push_back(projo);
+		}
 		this->direction = UP;
 
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))		//A faire: incrémenter shootTimer dans la fonction Update
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		shootTimer = 0;
-		Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, 1);
-		projos.push_back(projo);
+		if (shootTimer >= 60)
+		{
+			shootTimer = 0;
+			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y, 0, 1);
+			projos.push_back(projo);
+		}
 		this->direction = DOWN;
-
 	}
+
+	if (projos.size() >= 1 && projectile.projoActualTL >= projectile.projoLifeTime) {
+		projos.erase(projos.begin());
+		projectile.projoActualTL = 0;
+	}
+	else {
+		projectile.projoActualTL++;
+	}
+
+	shootTimer++;
+
 }
 
 void Player::playerHP(sf::RenderWindow* window) {
