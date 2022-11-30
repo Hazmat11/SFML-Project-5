@@ -23,6 +23,7 @@ InGame::~InGame() {
 
 void InGame::GameLoop(sf::RenderWindow* win) {
 	player.playerLoop(win);
+	ennemies->enemyLoop();
 	ennemies->ennemiesTexture();
 	ennemies->setEnnemiesCollisions();
 	map->mapLoop();

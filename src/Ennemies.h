@@ -20,6 +20,10 @@ public:
 	void ennemiesTexture();
 	void refreshTexture();
 	void setEnnemiesCollisions();
+	void playerTakeDamage();
+	void moveEnemyX();
+	void moveEnemyY();
+	void enemyLoop();
 	void takeDamage();
 
 
@@ -31,6 +35,7 @@ private:
 	int frame = 0;
 	int time = 0;
 	bool invincible;
-	
+	int enemySpeed = 3;
+
 };
 

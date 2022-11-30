@@ -4,6 +4,7 @@
 #include <vector>
 #include <list>
 #include "Projectiles.h"
+#include "UIPlayer.h"
 
 #define RIGHT 1;
 #define LEFT 2;
@@ -49,5 +50,6 @@ private :
 	int direction;
 	int shootTimer = 30;
 
+	UIPlayer* health;
 };
 

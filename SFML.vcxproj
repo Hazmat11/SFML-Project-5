@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Image Include="img\menu.png" />
+    <Image Include="img\pokeballLife.png" />
     <Image Include="Sources\pikachu.png" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +148,7 @@
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Projectiles.h" />
     <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\UIPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Button.cpp" />
@@ -159,6 +161,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Ennemies.cpp" />
     <ClCompile Include="src\Projectiles.cpp" />
+    <ClCompile Include="src\UIPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\player.png" />

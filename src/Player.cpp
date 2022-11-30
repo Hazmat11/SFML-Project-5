@@ -3,6 +3,8 @@
 Player::Player() {
 	arrangeSprite();
 	texture.loadFromFile(PIKACHU_TEXTURE_PATH);
+
+	health = new UIPlayer(this->maxHP);
 	playerBox = playerSprite.getGlobalBounds();
 }
 
@@ -188,6 +190,7 @@ void Player::arrangeSprite()
 
 void Player::playerLoop(sf::RenderWindow* window) {
 	playerPosition = playerSprite.getPosition();
+	this->health->updateHealth(this->HP);
 	this->movePlayer();
 	this->playerShoot();
 	for (int i = 0; i < projos.size(); i++) {
@@ -201,6 +204,7 @@ void Player::playerLoop(sf::RenderWindow* window) {
 
 void Player::playerRender(sf::RenderWindow* window) 
 {
+	health->DisplayHealth(window);
 	window->draw(playerSprite);
 
 	for (int i = 0; i < projos.size(); i++) {

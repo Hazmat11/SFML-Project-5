@@ -33,11 +33,19 @@ Menu::Menu(sf::RenderWindow* win) {
 	MenuBG.setTexture(menu);
 	MenuBG.setScale(sf::Vector2f(1.5f, 1.5f));
 
-	// Title //
+	// Load Font Title
 	if (!this->fontTitle.loadFromFile("upheavtt.ttf"))
 	{
 		std::cout << "Error TTF Title Font" << std::endl;
 	}
+
+	// Load Font Isaac
+	if (!this->fontIsaac.loadFromFile("IsaacGame.ttf"))
+	{
+		std::cout << "Error TTF Title Font" << std::endl;
+	}
+
+	// Title 1
 	title.setFont(fontTitle);
 	title.setPosition(sf::Vector2f(600, 150));
 	title.setRotation(-6.0f);
@@ -45,12 +53,29 @@ Menu::Menu(sf::RenderWindow* win) {
 	title.setCharacterSize(100);
 	title.setFillColor(sf::Color(120, 116, 64, 255));
 
+	// Title 2
 	title2.setFont(fontTitle);
 	title2.setPosition(sf::Vector2f(650, 225));
 	title2.setRotation(-6.0f);
 	title2.setString("OF PIKACHU");
 	title2.setCharacterSize(100);
 	title2.setFillColor(sf::Color(120, 116, 64, 255));
+
+	// Credit Text
+	credit.setFont(fontTitle);
+	credit.setPosition(sf::Vector2f(1400, 700));
+	credit.setRotation(-17.5f);
+	credit.setString("CREDIT :");
+	credit.setCharacterSize(30);
+	credit.setFillColor(sf::Color(2, 2, 8, 255));
+
+	// Credit Names
+	names.setFont(fontIsaac);
+	names.setPosition(sf::Vector2f(1450, 750));
+	names.setRotation(-17.5f);
+	names.setString("BERTRAND \nEtienne \nBOROS \nThéo \nKARMA");
+	names.setCharacterSize(25);
+	names.setFillColor(sf::Color(7, 8, 26, 255));
 
 	// Set Menu's Buttons
 	quitBT.setButton(1450, 150, 200, 200, "Quit", 100, 15.0f, 115, 62, 62, 255, win, sf::Color(0, 0, 0, 0));
@@ -146,6 +171,8 @@ void Menu::Render(sf::RenderWindow* win) {
 	win->draw(MenuBG);
 	win->draw(title);
 	win->draw(title2);
+	win->draw(credit);
+	win->draw(names);
 	for (int i = 0; i < buttons.size(); i++) {
 		buttons[i].RenderBT();
 	}
