@@ -16,7 +16,7 @@ void InGame::GameLoop(sf::RenderWindow* win) {
 }
 
 void InGame::Render(sf::RenderWindow* window) {	
-	window->draw(map.actualMap);
+	window->draw(map->actualMap);
 	window->draw(ennemies->ennemiesSprite);
 	player.playerRender(window);
 }
