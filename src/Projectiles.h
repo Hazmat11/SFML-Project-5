@@ -1,10 +1,8 @@
 #pragma once
-
+#include <iostream>
 #include <SFML/Graphics.hpp>
 
 #define PROJECTILE_TEXTURE_PATH "img/boule_elek.png"
-
-
 
 class Projectiles
 {
@@ -15,18 +13,20 @@ public:
 	~Projectiles();
 
 	void setProjectileCollisions();
+	void projCollision();
 
 	void projectileRender(sf::RenderWindow* win);
 	void projoLoop();
 
 	int projoLifeTime = 300;
 	int projoActualTL = 0;
-
+	sf::FloatRect projectileBox;
+	sf::Sprite projectileSprite;
+	sf::Vector2f returnPos();
+	sf::Vector2f projPos;
 
 private:
-	sf::Sprite projectileSprite;
 	sf::Texture projectileTexture;
-	sf::FloatRect projectileBox;
 	sf::Vector2f Dir;
 
 	float speed = 10;

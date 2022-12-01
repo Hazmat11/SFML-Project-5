@@ -5,7 +5,13 @@ Player::Player() {
 	texture.loadFromFile(PIKACHU_TEXTURE_PATH);
 
 	health = new UIPlayer(this->maxHP);
+	playerBox = playerSprite.getGlobalBounds();
 }
+
+Player::Player(Projectiles* proj) {
+	projectile = proj;
+}
+
 
 Player::~Player() {
 }
@@ -13,7 +19,7 @@ Player::~Player() {
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
-	std::cout << playerSprite.getPosition().x << " " << playerSprite.getPosition().y << "\n";
+	std::cout << "playerPos: " << playerPosition.x << " " << playerPosition.y << "\n";
 	return playerPosition;
 }
 
@@ -55,9 +61,8 @@ void Player::movePlayer() {
 	}
 }
 
-void Player::playerShoot()
+void Player::playerShoot( )
 {
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		if (shootTimer >= 60)
@@ -98,6 +103,7 @@ void Player::playerShoot()
 		{
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x + 30, playerSprite.getPosition().y + 40, 0, 1);
+
 			projos.push_back(projo);
 		}
 		this->direction = DOWN;
@@ -106,7 +112,6 @@ void Player::playerShoot()
 	for (int i = 0; i < projos.size(); i += 1)
 	{
 		if (projos[i].projoActualTL >= projos[i].projoLifeTime) {
-			std::cout << "erase";
 			projos.erase(projos.begin() + i);
 		}
 		else {
@@ -114,10 +119,7 @@ void Player::playerShoot()
 		}
 	}
 
-
-
 	shootTimer++;
-
 }
 
 void Player::playerHP(sf::RenderWindow* window) {
@@ -197,6 +199,7 @@ void Player::playerLoop(sf::RenderWindow* window) {
 	this->playerTexture();
 	this->wallCollision();
 	this->playerHP(window);
+	//verifShoot();
 }
 
 void Player::playerRender(sf::RenderWindow* window) 
@@ -208,3 +211,10 @@ void Player::playerRender(sf::RenderWindow* window)
 		projos[i].projectileRender(window);
 	}
 }
+
+//void Player::verifShoot() {
+//	if (projectile->projectileSprite.getTexture()) {
+//		shoot = true;
+//		std::cout << "chiasse";
+//	}
+//}
