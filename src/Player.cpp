@@ -238,9 +238,3 @@ void Player::playerRender(sf::RenderWindow* window)
 		projos[i].projectileRender(window);
 	}
 }
-
-//void Player::verifShoot() {
-//	if (projectile->projectileSprite.getTexture()) {
-//		shoot = true;
-//	}
-//}
