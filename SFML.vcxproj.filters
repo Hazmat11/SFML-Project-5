@@ -36,9 +36,6 @@
     <ClCompile Include="src\UIPlayer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\MusicBoard.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -54,9 +51,6 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="src\UIPlayer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MusicBoard.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="src\Projectiles.h">
@@ -138,5 +132,10 @@
     <Font Include="upheavtt.ttf">
       <Filter>Fichiers de ressources</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="img\MenuMusic.mp3">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
   </ItemGroup>
 </Project>

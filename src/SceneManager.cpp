@@ -4,7 +4,6 @@ SceneManager::SceneManager() {
 }
 
 SceneManager::SceneManager(sf::RenderWindow* win) {
-
 	rWin = win;
 	menu = new Menu(rWin);
 }

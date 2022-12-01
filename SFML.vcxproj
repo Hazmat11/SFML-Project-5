@@ -145,7 +145,6 @@
     <ClInclude Include="src\InGame.h" />
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Map.h" />
-    <ClInclude Include="src\MusicBoard.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Projectiles.h" />
     <ClInclude Include="src\SceneManager.h" />
@@ -159,7 +158,6 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Menu.cpp" />
-    <ClCompile Include="src\MusicBoard.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Ennemies.cpp" />
     <ClCompile Include="src\Projectiles.cpp" />
@@ -178,6 +176,9 @@
   <ItemGroup>
     <Font Include="IsaacGame.ttf" />
     <Font Include="upheavtt.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="img\MenuMusic.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
