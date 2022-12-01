@@ -217,7 +217,6 @@ void Player::playerLoop(sf::RenderWindow* window) {
 	this->playerTexture();
 	this->wallCollision();
 	this->playerHP(window);
-	//verifShoot();
 }
 
 void Player::playerRender(sf::RenderWindow* window) 
@@ -229,9 +228,3 @@ void Player::playerRender(sf::RenderWindow* window)
 		projos[i].projectileRender(window);
 	}
 }
-
-//void Player::verifShoot() {
-//	if (projectile->projectileSprite.getTexture()) {
-//		shoot = true;
-//	}
-//}

@@ -14,9 +14,8 @@ public:
 	Projectiles* projectiles;
 
 	Ennemies();
-	Ennemies(Player* p);
-	Ennemies(Projectiles* proj);
 	~Ennemies();
+	void setEnemy(Player* p);
 	void arrangeSprite();
 	void ennemiesLoop();
 	void ennemiesTexture();

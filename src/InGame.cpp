@@ -1,25 +1,9 @@
 #include "InGame.h"
 
 InGame::InGame() {
-	ennemies = new Ennemies(&player);
-	enemiesList.push_back(ennemies);
+	enemy.setEnemy(&player);
+	enemiesList.push_back(enemy);
 	map = new Map(&player);
-}
-
-void InGame::projCollision() {
-	for (int i = 0; i < player.projos.size(); i++)
-	{
-		if (ennemies->ennemiesBox.contains(player.projos[i].projectileSprite.getPosition())) {
-			player.projos.erase(player.projos.begin() + i);
-			ennemies->HP--;
-		}
-	}
-
-	for (int i = 0; i < enemiesList.size(); i++) {
-		if (enemiesList[i]->systemHP()) {
-			enemiesList.erase(enemiesList.begin() + i);
-		}
-	}
 }
 
 InGame::~InGame() {
@@ -28,18 +12,39 @@ InGame::~InGame() {
 
 void InGame::GameLoop(sf::RenderWindow* win) {
 	player.playerLoop(win);
-	ennemies->ennemiesLoop();
-	ennemies->ennemiesTexture();
-	ennemies->setEnnemiesCollisions();
+	for (int i = 0; i < enemiesList.size(); i++) {
+		enemiesList[i].ennemiesLoop();
+	}
 	map->mapLoop();
-	projCollision();
+	enemySystemHP();
 }
 
 void InGame::Render(sf::RenderWindow* window) {	
 	window->draw(map->actualMap);
 	window->draw(map->object);
-	if (!ennemies->deleteSprite) {
-		window->draw(ennemies->ennemiesSprite);
+	if (!enemy.deleteSprite) {
+		window->draw(enemy.ennemiesSprite);
+	}
+	for (int i = 0; i < enemiesList.size(); i++) {
+		enemiesList[i].ennemiesTexture();
 	}
 	player.playerRender(window);
+}
+
+void InGame::enemySystemHP() {
+	for (int i = 0; i < player.projos.size(); i++)
+	{
+		for (int j = 0; j < enemiesList.size(); j++) {
+			if (enemiesList[j].ennemiesBox.contains(player.projos[i].projectileSprite.getPosition())) {
+				player.projos.erase(player.projos.begin() + i);
+				enemiesList[j].HP--;
+			}
+		}
+	}
+
+	for (int i = 0; i < enemiesList.size(); i++) {
+		if (enemiesList[i].HP <= 0) {
+			enemiesList.erase(enemiesList.begin() + i);
+		}
+	}
 }

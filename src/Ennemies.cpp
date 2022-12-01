@@ -1,37 +1,31 @@
 #include "Ennemies.h"
 
 Ennemies::Ennemies() {
-	arrangeSprite();
-}
-
-Ennemies::Ennemies(Player* p) {
-	arrangeSprite();
-	player = p;
-}
-
-Ennemies::Ennemies(Projectiles* proj) {
-
-	projectiles = proj;
+	this->arrangeSprite();
 }
 
 Ennemies::~Ennemies() {
 
 }
 
+void Ennemies::setEnemy(Player* p) {
+	player = p;
+}
+
 void Ennemies::ennemiesLoop() {
-	ennemiesBox = ennemiesSprite.getGlobalBounds();
-	ennemiesTexture();
-	setEnnemiesCollisions();
+	this->ennemiesBox = this->ennemiesSprite.getGlobalBounds();
+	this->ennemiesTexture();
+	this->setEnnemiesCollisions();
 	this->moveEnemyX();
 	this->moveEnemyY();
-	systemHP();
+	this->systemHP();
 }
 
 void Ennemies::arrangeSprite()
 {
-	ennemiesSprite.setOrigin({20, 20 });
-	ennemiesSprite.scale(sf::Vector2f(2.3f, 2.3f));
-	ennemiesSprite.setPosition(sf::Vector2f(900.f, 325.f));
+	this->ennemiesSprite.setOrigin({20, 20});
+	this->ennemiesSprite.scale(sf::Vector2f(2.3f, 2.3f));
+	this->ennemiesSprite.setPosition(sf::Vector2f(900.f, 325.f));
 }
 
 void Ennemies::ennemiesTexture() {
@@ -93,7 +87,7 @@ void Ennemies::refreshTexture() {
 }
 
 void Ennemies::setEnnemiesCollisions(){
-	this->player->playerBox = this->player->playerSprite.getGlobalBounds();
+this->player->playerBox = this->player->playerSprite.getGlobalBounds();
 
 	if (this->player->playerBox.intersects(ennemiesBox))
 	{

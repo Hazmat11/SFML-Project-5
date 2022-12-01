@@ -8,7 +8,7 @@
 
 class InGame {
 public :
-	Ennemies* ennemies;
+	Ennemies enemy;
 	Player player;
 	Map* map;
 
@@ -16,7 +16,7 @@ public :
 	~InGame();
 	void GameLoop(sf::RenderWindow* win);
 	void Render(sf::RenderWindow* win);
-	void projCollision();
+	void enemySystemHP();
 private :
-	std::vector<Ennemies*> enemiesList;
+	std::vector<Ennemies> enemiesList;
 };
