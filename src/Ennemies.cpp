@@ -1,7 +1,7 @@
 #include "Ennemies.h"
 
 Ennemies::Ennemies() {
-	ennemiesBox = ennemiesSprite.getGlobalBounds();
+	arrangeSprite();
 }
 
 Ennemies::Ennemies(Player* p) {
@@ -19,13 +19,17 @@ Ennemies::~Ennemies() {
 }
 
 void Ennemies::ennemiesLoop() {
+	ennemiesBox = ennemiesSprite.getGlobalBounds();
 	ennemiesTexture();
 	setEnnemiesCollisions();
+	this->moveEnemyX();
+	this->moveEnemyY();
 	//takeDamage();
 }
 
 void Ennemies::arrangeSprite()
 {
+	ennemiesSprite.setOrigin({20, 20 });
 	ennemiesSprite.scale(sf::Vector2f(2.3f, 2.3f));
 	ennemiesSprite.setPosition(sf::Vector2f(900.f, 325.f));
 }
@@ -61,6 +65,18 @@ void Ennemies::ennemiesTexture() {
 	if (frame == 60) {
 		frame = 0;
 	}
+
+	if(faceRight == true)
+		{
+			ennemiesSprite.setScale({ -2.3, 2.3 });
+			faceRight = false;
+	}
+	else if (faceLeft == true)
+	{
+		ennemiesSprite.setScale({ 2.3, 2.3 });
+		faceLeft = false;
+		}
+
 }
 
 void Ennemies::refreshTexture() {
@@ -93,4 +109,40 @@ void Ennemies::takeDamage() {
 	if (this->projectiles->projectileBox.intersects(ennemiesBox)) {
 		std::cout << "merde";
 	}
+}
+
+void Ennemies::moveEnemyX()
+{
+	int enemyX = ennemiesSprite.getPosition().x;
+	int enemyY = ennemiesSprite.getPosition().y;
+
+	int xdistance = player->playerSprite.getPosition().x - ennemiesSprite.getPosition().x;
+
+	if (xdistance > 2)
+	{
+		ennemiesSprite.setPosition(enemyX + 2, enemyY);
+		faceRight = true;
+	}
+	else if (xdistance < 2) {
+		ennemiesSprite.setPosition(enemyX - 2, enemyY);
+		faceLeft = true;
+	}
+
+}
+
+void Ennemies::moveEnemyY()
+{
+	int enemyX = ennemiesSprite.getPosition().x;
+	int enemyY = ennemiesSprite.getPosition().y;
+
+	int ydistance = player->playerSprite.getPosition().y - ennemiesSprite.getPosition().y;
+
+	if (ydistance > 2)
+	{
+		ennemiesSprite.setPosition(enemyX, enemyY + 2);
+	}
+	else if (ydistance < 2) {
+		ennemiesSprite.setPosition(enemyX, enemyY - 2);
+	}
+
 }
