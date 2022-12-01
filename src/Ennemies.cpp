@@ -1,7 +1,6 @@
 #include "Ennemies.h"
 
 Ennemies::Ennemies() {
-	ennemiesBox = ennemiesSprite.getGlobalBounds();
 }
 
 Ennemies::Ennemies(Player* p) {
@@ -21,7 +20,6 @@ Ennemies::~Ennemies() {
 void Ennemies::ennemiesLoop() {
 	ennemiesTexture();
 	setEnnemiesCollisions();
-	//takeDamage();
 }
 
 void Ennemies::arrangeSprite()
@@ -69,6 +67,7 @@ void Ennemies::refreshTexture() {
 
 void Ennemies::setEnnemiesCollisions(){
 	this->player->playerBox = this->player->playerSprite.getGlobalBounds();
+	this->ennemiesBox = ennemiesSprite.getGlobalBounds();
 
 	if (this->player->playerBox.intersects(ennemiesBox))
 	{
@@ -88,9 +87,8 @@ void Ennemies::setEnnemiesCollisions(){
 	}
 }
 
-void Ennemies::takeDamage() {
-	this->projectiles->projectileBox = this->projectiles->projectileSprite.getGlobalBounds();
-	if (this->projectiles->projectileBox.intersects(ennemiesBox)) {
-		std::cout << "merde";
-	}
-}
+//void Ennemies::takeDamage() {
+//	this->projectiles->projectileBox = this->projectiles->projectileSprite.getGlobalBounds();
+//	if (this->projectiles->projectileBox.intersects(ennemiesBox)) {
+//	}
+//}

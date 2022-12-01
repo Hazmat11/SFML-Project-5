@@ -40,7 +40,6 @@ void Projectiles::showProjectileTexture()
 void Projectiles::projoLoop()
 {
 	projectileSprite.move(Dir* speed);
-	returnPos();
 }
 
 void Projectiles::projectileRender(sf::RenderWindow* window) 

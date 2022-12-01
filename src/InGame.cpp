@@ -6,14 +6,16 @@ InGame::InGame() {
 }
 
 void InGame::projCollision() {
-	if (player.shoot == true) {
-		projectile->projectileBox = projectile->projectileSprite.getGlobalBounds();
-		ennemies->ennemiesBox = ennemies->ennemiesSprite.getGlobalBounds();
-		if (projectile->projectileBox.intersects(ennemies->ennemiesBox)) {
-		
+	for (int i = 0; i < player.projos.size(); i++)
+	{
+		player.projos[i].projectileBox = player.projos[i].projectileSprite.getGlobalBounds();
+
+		std::cout << player.projos[i].projectileBox.left << "\n";
+		std::cout << "enemy" << ennemies->ennemiesBox.left << "\n";
+
+		if (player.projos[i].projectileBox.intersects(ennemies->ennemiesBox)) {
+			std::cout << "wooooaaaaaaah";
 		}
-	}
-	else {
 	}
 }
 
