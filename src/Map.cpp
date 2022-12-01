@@ -49,7 +49,7 @@ void Map::nextMap()
 	if (this->player->playerBox.intersects(sf::FloatRect(900, 130, 100, 50)) && currentMap != 1) {
 		map.loadFromFile("img/spikemap.png");
 		actualMap.setTexture(map);
-		this->player->playerSprite.setPosition(sf::Vector2f(885.f, 830.f));
+		this->player->playerSprite.setPosition(sf::Vector2f(950.f, 900.f));
 		currentMap = 1;
 	}
 	if (this->player->playerBox.intersects(sf::FloatRect(177, 500, 50, 100)) && currentMap != 2) {
@@ -65,9 +65,17 @@ void Map::nextMap()
 		deleteSprite = true;
 		currentMap = 3;
 	}
+	if (player->playerBox.intersects(sf::FloatRect(950, 990, 100, 20)) && currentMap == 1) {
+		map.loadFromFile("img/map_2.png");
+		actualMap.setTexture(map);
+		this->player->playerSprite.setPosition(sf::Vector2f(900, 300));
+		currentMap = 3;
+	}
 	if (currentMap == 3 && keyPossession == true) {
 		if (player->playerBox.intersects(sf::FloatRect(1750, 540, 100, 100))) {
-
+			map.loadFromFile("img/end.png");
+			actualMap.setTexture(map);
+			ennemies.deleteSprite = true;
 		}
 	}
 	

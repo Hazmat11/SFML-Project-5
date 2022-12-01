@@ -142,19 +142,19 @@ void Player::playerTexture()
 	if (frame < 30) {
 		switch (direction) {
 		default:
-			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 40));
 			break;
 		case 1:
-			playerSprite.setTextureRect(sf::IntRect(10, 154, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(10, 154, 40, 35));
 			break;
 		case 2:
-			playerSprite.setTextureRect(sf::IntRect(10, 89, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(15, 89, 40, 35));
 			break;
 		case 3:
-			playerSprite.setTextureRect(sf::IntRect(10, 214, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(10, 220, 40, 40));
 			break;
 		case 4:
-			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 40));
 			break;
 		}
 		playerSprite.setTexture(texture);
@@ -163,19 +163,19 @@ void Player::playerTexture()
 	if (frame < 60 && frame > 29) {
 		switch (direction) {
 		default:
-			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 40));
 			break;
 		case 1 :
-			playerSprite.setTextureRect(sf::IntRect(140, 154, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 154, 40, 35));
 			break;
 		case 2:
-			playerSprite.setTextureRect(sf::IntRect(140, 89, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 89, 40, 35));
 			break;
 		case 3:
-			playerSprite.setTextureRect(sf::IntRect(140, 214, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 220, 40, 35));
 			break;
 		case 4:
-			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 40));
 			break;
 		}
 		playerSprite.setTexture(texture);
