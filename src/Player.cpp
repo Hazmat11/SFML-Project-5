@@ -219,8 +219,22 @@ void Player::playerRender(sf::RenderWindow* window)
 	}
 }
 
-//void Player::verifShoot() {
-//	if (projectile->projectileSprite.getTexture()) {
-//		shoot = true;
-//	}
-//}
+//Player take damage
+void Player::takeDamage() {
+	if (!invincible) {
+		HP--;
+		playerSprite.setColor(sf::Color(255, 255, 255, 128));
+		invincible = true;
+	}
+}
+
+void Player::invincibility() {
+	if (invincible) {
+	time++;
+	}
+	if (time == 60) {
+		invincible = false;
+		time = 0;
+		playerSprite.setColor(sf::Color(255, 255, 255, 255));
+	}
+}

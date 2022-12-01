@@ -34,6 +34,8 @@ public :
 	void playerShoot( );
 	void playerRender(sf::RenderWindow* win);
 	void playerLoop(sf::RenderWindow* window);
+	void takeDamage();
+	void invincibility();
 
 	sf::Vector2f playerPosition;
 	sf::Sprite playerSprite;
@@ -47,10 +49,12 @@ public :
 
 private :
 
+	bool invincible;
 	int maxHP = 4;
 	int frame = 0;
 	int direction;
 	int shootTimer = 60;
+	int time = 0;
 
 	UIPlayer* health;
 

@@ -38,7 +38,4 @@ public:
 private:
 
 	int currentMap = 3;
-	int time = 0;
-	bool invincible;
-
 };

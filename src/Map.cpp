@@ -58,16 +58,17 @@ void Map::nextMap()
 		this->player->playerSprite.setPosition(sf::Vector2f(1635.f, 527.f));
 		currentMap = 2;
 	}
-	if (player->playerBox.intersects(sf::FloatRect(1815, 450, 100, 100)) && currentMap == 2) {
-		std::cout << "fonctionne";
+	if (player->playerBox.intersects(sf::FloatRect(1715, 450, 20, 100)) && currentMap == 2) {
 		map.loadFromFile("img/map_2.png");
 		actualMap.setTexture(map);
-		currentMap = 3;
 		this->player->playerSprite.setPosition(sf::Vector2f(300, 527.f));
 		deleteSprite = true;
+		currentMap = 3;
 	}
-	if (player->playerBox.intersects(sf::FloatRect(1665, 540, 100, 100)) && currentMap == 3 && keyPossession == true) {
-		std::cout << "gg t'a win";
+	if (currentMap == 3 && keyPossession == true) {
+		if (player->playerBox.intersects(sf::FloatRect(1750, 540, 100, 100))) {
+
+		}
 	}
 	
 	spikeMap();
@@ -77,23 +78,12 @@ void Map::nextMap()
 //The map with the spikes and the collision
 void Map::spikeMap() {
 	if (currentMap == 1 && !this->player->playerBox.intersects(sf::FloatRect(940, 860, 40, 30))) {
-		if (!invincible) {
-			player->HP--;
-			this->player->playerSprite.setColor(sf::Color(255, 255, 255, 128));
-			invincible = true;
-		}
+		player->takeDamage();
 		if (!player->playerBox.intersects(sf::FloatRect(500, 115, 930, 845))) {
 			counterMove();
 		}
 	}
-	else if (invincible) {
-		time++;
-	}
-	if (time == 60) {
-		invincible = false;
-		time = 0;
-		this->player->playerSprite.setColor(sf::Color(255, 255, 255, 255));
-	}
+	player->invincibility();
 }
 
 //The longmap and it collision
@@ -105,8 +95,9 @@ void Map::longMap() {
 		takeKey();
 		sf::FloatRect spikeBox = object.getGlobalBounds();
 		if (this->player->playerBox.intersects(spikeBox)) {
-
+			player->takeDamage();
 		}
+		player->invincibility();
 		if (!player->playerBox.intersects(sf::FloatRect(250, 420, 1630, 280))) {
 			counterMove();
 		}
