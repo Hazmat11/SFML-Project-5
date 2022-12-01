@@ -38,6 +38,8 @@ private:
 	int time = 0;
 	bool invincible;
 	int enemySpeed = 3;
+	bool faceRight = false;
+	bool faceLeft = false;
 
 	sf::SoundBuffer buffer;
 	sf::Sound jigglyoofSound;

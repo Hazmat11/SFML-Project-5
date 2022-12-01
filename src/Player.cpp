@@ -73,7 +73,7 @@ void Player::playerShoot( )
 
 			pikattackSound.play();
 			shootTimer = 0;
-			Projectiles projo(playerPosition.x, playerPosition.y + 20, 1, 0);
+			Projectiles projo(playerPosition.x, playerPosition.y -15, 1, 0);
 			projos.push_back(projo);
 		}
 		this->direction = RIGHT;
@@ -89,7 +89,7 @@ void Player::playerShoot( )
 
 			pikattackSound.play();
 			shootTimer = 0;
-			Projectiles projo(playerSprite.getPosition().x + 15, playerSprite.getPosition().y + 20, -1, 0);
+			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y - 15, -1, 0);
 			projos.push_back(projo);
 		}
 		this->direction = LEFT;
@@ -105,7 +105,7 @@ void Player::playerShoot( )
 
 			pikattackSound.play();
 			shootTimer = 0;
-			Projectiles projo(playerSprite.getPosition().x + 30, playerSprite.getPosition().y + 20, 0, -1);
+			Projectiles projo(playerSprite.getPosition().x - 15, playerSprite.getPosition().y, 0, -1);
 			projos.push_back(projo);
 		}
 		this->direction = UP;
@@ -120,7 +120,7 @@ void Player::playerShoot( )
 				std::cout << "-1";
 			pikattackSound.play();
 			shootTimer = 0;
-			Projectiles projo(playerSprite.getPosition().x + 30, playerSprite.getPosition().y + 40, 0, 1);
+			Projectiles projo(playerSprite.getPosition().x - 15, playerSprite.getPosition().y, 0, 1);
 			projos.push_back(projo);
 		}
 		this->direction = DOWN;
@@ -203,6 +203,7 @@ void Player::arrangeSprite()
 {
 	playerSprite.scale(sf::Vector2f(2.3f, 2.3f));
 	playerSprite.setPosition(sf::Vector2f(555.f, 325.f));
+	playerSprite.setOrigin({ 20, 25 });
 }
 
 void Player::playerLoop(sf::RenderWindow* window) {
