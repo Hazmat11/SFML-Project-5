@@ -5,12 +5,14 @@
 #include <list>
 #include "Projectiles.h"
 #include "UIPlayer.h"
+#include <SFML/Audio.hpp>
 
 #define RIGHT 1;
 #define LEFT 2;
 #define UP 3;
 #define DOWN 4;
 #define PIKACHU_TEXTURE_PATH "img/player.png"
+#define PIKACHU_ATTACK_SOUND_PATH "sounds/pikattack.mp3"
 
 
 class Player
@@ -48,5 +50,6 @@ private :
 	int shootTimer = 30;
 
 	UIPlayer* health;
+
 };
 

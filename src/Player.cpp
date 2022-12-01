@@ -5,6 +5,7 @@ Player::Player() {
 	texture.loadFromFile(PIKACHU_TEXTURE_PATH);
 
 	health = new UIPlayer(this->maxHP);
+
 }
 
 Player::~Player() {
@@ -65,6 +66,8 @@ void Player::playerShoot()
 			shootTimer = 0;
 			Projectiles projo(playerPosition.x, playerPosition.y + 20, 1, 0);
 			projos.push_back(projo);
+
+			
 		}
 		this->direction = RIGHT;
 	}
