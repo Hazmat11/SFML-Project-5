@@ -3,7 +3,9 @@
 #include <iostream>
 #include "Player.h"
 #include "Projectiles.h"
+#include <SFML/Audio.hpp>
 #define JIGGLY_TEXTURE_PATH "img/tilesJiggly.png"
+#define JIGGLYPUFF_HURT_SOUND_PATH "sounds/jigglyoof.wav"
 
 class Ennemies
 {
@@ -37,5 +39,7 @@ private:
 	bool invincible;
 	int enemySpeed = 3;
 
+	sf::SoundBuffer buffer;
+	sf::Sound jigglyoofSound;
 };
 

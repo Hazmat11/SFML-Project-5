@@ -67,11 +67,14 @@ void Player::playerShoot( )
 	{
 		if (shootTimer >= 60)
 		{
+			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
+				std::cout << "-1";
+			pikattackSound.setBuffer(buffer);
+
+			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerPosition.x, playerPosition.y + 20, 1, 0);
 			projos.push_back(projo);
-
-			
 		}
 		this->direction = RIGHT;
 	}
@@ -80,6 +83,11 @@ void Player::playerShoot( )
 	{
 		if (shootTimer >= 60)
 		{
+			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
+				std::cout << "-1";
+			pikattackSound.setBuffer(buffer);
+
+			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x + 15, playerSprite.getPosition().y + 20, -1, 0);
 			projos.push_back(projo);
@@ -91,6 +99,11 @@ void Player::playerShoot( )
 	{
 		if (shootTimer >= 60)
 		{
+			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
+				std::cout << "-1";
+			pikattackSound.setBuffer(buffer);
+
+			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x + 30, playerSprite.getPosition().y + 20, 0, -1);
 			projos.push_back(projo);
@@ -103,9 +116,11 @@ void Player::playerShoot( )
 	{
 		if (shootTimer >= 60)
 		{
+			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
+				std::cout << "-1";
+			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x + 30, playerSprite.getPosition().y + 40, 0, 1);
-
 			projos.push_back(projo);
 		}
 		this->direction = DOWN;
