@@ -18,6 +18,7 @@ Ennemies::~Ennemies() {
 
 }
 
+//Update loop of the ennemies class for gameplay elements
 void Ennemies::ennemiesLoop() {
 	ennemiesBox = ennemiesSprite.getGlobalBounds();
 	ennemiesTexture();
@@ -27,6 +28,7 @@ void Ennemies::ennemiesLoop() {
 	systemHP();
 }
 
+//Manage the start position, and the scale of the sprite of the enemy
 void Ennemies::arrangeSprite()
 {
 	ennemiesSprite.setOrigin({20, 20 });
@@ -34,6 +36,7 @@ void Ennemies::arrangeSprite()
 	ennemiesSprite.setPosition(sf::Vector2f(900.f, 325.f));
 }
 
+//Manage the enemy's animations
 void Ennemies::ennemiesTexture() {
 	switch (frame){
 	case 0:
@@ -79,6 +82,7 @@ void Ennemies::ennemiesTexture() {
 
 }
 
+//Manage the death of the enemy when HP hits 0
 bool Ennemies::systemHP() {
 	if (HP == 0) {
 		return true;
@@ -88,10 +92,12 @@ bool Ennemies::systemHP() {
 	}
 }
 
+//Update the texture of the enemy at each frame
 void Ennemies::refreshTexture() {
 	ennemiesSprite.setTexture(texture);
 }
 
+//Set the collisions between the player and the enemy, and lower the player's HP if they touch
 void Ennemies::setEnnemiesCollisions(){
 	this->player->playerBox = this->player->playerSprite.getGlobalBounds();
 
@@ -113,6 +119,7 @@ void Ennemies::setEnnemiesCollisions(){
 	}
 }
 
+//Allow the enemy to follow the player on the X axis
 void Ennemies::moveEnemyX()
 {
 	int enemyX = ennemiesSprite.getPosition().x;
@@ -132,6 +139,7 @@ void Ennemies::moveEnemyX()
 
 }
 
+//Allow the enemy to follow the player on the Y axis
 void Ennemies::moveEnemyY()
 {
 	int enemyX = ennemiesSprite.getPosition().x;

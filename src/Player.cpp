@@ -12,10 +12,10 @@ Player::Player(Projectiles* proj) {
 	projectile = proj;
 }
 
-
 Player::~Player() {
 }
 
+//Return the player's position
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
@@ -45,16 +45,17 @@ void Player::movePlayer() {
 	}
 }
 
+//Allow the player to shoot in 4 directions with the keyboard's arrows
 void Player::playerShoot( )
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerPosition.x, playerPosition.y -15, 1, 0);
@@ -65,12 +66,12 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y - 15, -1, 0);
@@ -81,12 +82,12 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x - 15, playerSprite.getPosition().y, 0, -1);
@@ -98,10 +99,11 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x - 15, playerSprite.getPosition().y, 0, 1);
@@ -109,7 +111,7 @@ void Player::playerShoot( )
 		}
 		this->direction = DOWN;
 	}
-
+	
 	for (int i = 0; i < projos.size(); i += 1)
 	{
 		if (projos[i].projoActualTL >= projos[i].projoLifeTime) {
@@ -123,6 +125,7 @@ void Player::playerShoot( )
 	shootTimer++;
 }
 
+//Manage the player's HP
 void Player::playerHP(sf::RenderWindow* window) {
 	if (HP == 0) {
 		window->close();
@@ -132,6 +135,7 @@ void Player::playerHP(sf::RenderWindow* window) {
 	}
 }
 
+//Manage the player's animations
 void Player::playerTexture()
 {
 
@@ -183,6 +187,7 @@ void Player::playerTexture()
 	}
 }
 
+//Manage the start position, and the scale of the sprite of the player
 void Player::arrangeSprite()
 {
 	playerSprite.scale(sf::Vector2f(2.3f, 2.3f));
@@ -190,6 +195,7 @@ void Player::arrangeSprite()
 	playerSprite.setOrigin({ 20, 25 });
 }
 
+//Update loop of the player class for gameplay elements
 void Player::playerLoop(sf::RenderWindow* window) {
 	playerPosition = playerSprite.getPosition();
 	this->health->updateHealth(this->HP);
@@ -202,6 +208,7 @@ void Player::playerLoop(sf::RenderWindow* window) {
 	this->playerHP(window);
 }
 
+//Update loop of the player class for rendered elements
 void Player::playerRender(sf::RenderWindow* window) 
 {
 	health->DisplayHealth(window);

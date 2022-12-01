@@ -37,6 +37,9 @@ public:
 	int HP = 2;
 	bool deleteSprite;
 
+	sf::SoundBuffer buffer;
+	sf::Sound jigglyoofSound;
+
 private:
 	int frame = 0;
 	int time = 0;
@@ -45,7 +48,6 @@ private:
 	bool faceRight = false;
 	bool faceLeft = false;
 
-	sf::SoundBuffer buffer;
-	sf::Sound jigglyoofSound;
+
 };
 

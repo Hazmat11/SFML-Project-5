@@ -24,10 +24,12 @@ UIPlayer::~UIPlayer() {
 
 }
 
+//Update the health of the player at each frame
 void UIPlayer::updateHealth(int lp) {
 	this->actualLP = lp;
 }
 
+//Show hearts depending on the player's HP
 void UIPlayer::DisplayHealth(sf::RenderWindow* window) {
 	for (int i = 0; i < actualLP; i++) {
 		spritesLP[i].setPosition(sf::Vector2f((75.0f * i) + 25.0f, 25.0f));
