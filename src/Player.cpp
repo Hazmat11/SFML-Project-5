@@ -23,24 +23,6 @@ sf::Vector2f Player::returnPos(){
 	return playerPosition;
 }
 
-//Set the collisions between walls and the player
-void Player::wallCollision() {
-	returnPos();
-	if (playerPosition.x > 1635) {
-		playerSprite.move(-5.f, 0.f);
-	}
-	if (playerPosition.y < 135) {
-		playerSprite.move(0.f, 5.f);
-	}
-	if (playerPosition.x < 175) {
-		playerSprite.move(5.f, 0.f);
-	}
-	if (playerPosition.y > 830) {
-		playerSprite.move(0.f, -5.f);
-	}
-}
-
-//Allow the player to move with Z, Q, S, and D
 void Player::movePlayer() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
@@ -223,9 +205,7 @@ void Player::playerLoop(sf::RenderWindow* window) {
 		projos[i].projoLoop();
 	}
 	this->playerTexture();
-	this->wallCollision();
 	this->playerHP(window);
-	//verifShoot();
 }
 
 //Update loop of the player class for rendered elements

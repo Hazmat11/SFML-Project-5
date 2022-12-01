@@ -29,7 +29,6 @@ public :
 	void arrangeSprite();
 	void setPlayerCollisions();
 	void projCollision();
-	void wallCollision();
 	void verifShoot();
 	void playerHP(sf::RenderWindow* window);
 	void playerShoot( );
