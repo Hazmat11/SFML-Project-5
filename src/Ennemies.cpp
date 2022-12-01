@@ -24,7 +24,7 @@ void Ennemies::ennemiesLoop() {
 	setEnnemiesCollisions();
 	this->moveEnemyX();
 	this->moveEnemyY();
-	//takeDamage();
+	systemHP();
 }
 
 void Ennemies::arrangeSprite()
@@ -79,6 +79,15 @@ void Ennemies::ennemiesTexture() {
 
 }
 
+bool Ennemies::systemHP() {
+	if (HP == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 void Ennemies::refreshTexture() {
 	ennemiesSprite.setTexture(texture);
 }
@@ -101,13 +110,6 @@ void Ennemies::setEnnemiesCollisions(){
 		invincible = false;
 		time = 0;
 		this->player->playerSprite.setColor(sf::Color(255, 255, 255, 255));
-	}
-}
-
-void Ennemies::takeDamage() {
-	this->projectiles->projectileBox = this->projectiles->projectileSprite.getGlobalBounds();
-	if (this->projectiles->projectileBox.intersects(ennemiesBox)) {
-		std::cout << "merde";
 	}
 }
 

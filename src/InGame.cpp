@@ -2,19 +2,22 @@
 
 InGame::InGame() {
 	ennemies = new Ennemies(&player);
+	enemiesList.push_back(ennemies);
 	map = new Map(&player);
 }
 
 void InGame::projCollision() {
 	for (int i = 0; i < player.projos.size(); i++)
 	{
-		player.projos[i].projectileBox = player.projos[i].projectileSprite.getGlobalBounds();
+		if (ennemies->ennemiesBox.contains(player.projos[i].projectileSprite.getPosition())) {
+			player.projos.erase(player.projos.begin() + i);
+			ennemies->HP--;
+		}
+	}
 
-		std::cout << player.projos[i].projectileBox.left << "\n";
-		std::cout << "enemy" << ennemies->ennemiesBox.left << "\n";
-
-		if (player.projos[i].projectileBox.intersects(ennemies->ennemiesBox)) {
-			std::cout << "wooooaaaaaaah";
+	for (int i = 0; i < enemiesList.size(); i++) {
+		if (enemiesList[i]->systemHP()) {
+			enemiesList.erase(enemiesList.begin() + i);
 		}
 	}
 }
@@ -35,6 +38,8 @@ void InGame::GameLoop(sf::RenderWindow* win) {
 void InGame::Render(sf::RenderWindow* window) {	
 	window->draw(map->actualMap);
 	window->draw(map->object);
-	window->draw(ennemies->ennemiesSprite);
+	if (!ennemies->deleteSprite) {
+		window->draw(ennemies->ennemiesSprite);
+	}
 	player.playerRender(window);
 }
