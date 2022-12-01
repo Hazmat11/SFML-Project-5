@@ -11,6 +11,7 @@ public :
 	Ennemies enemy;
 	Player player;
 	Map* map;
+	Projectiles projectile;
 
 	InGame();
 	~InGame();

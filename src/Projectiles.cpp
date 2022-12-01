@@ -18,6 +18,7 @@ Projectiles::Projectiles(float pos_x, float pos_y, float dir_x, float dir_y)
 	Dir.y = dir_y;
 }
 
+//Manage the projectile's animations
 void Projectiles::showProjectileTexture()
 {
 	projectileTexture.loadFromFile(PROJECTILE_TEXTURE_PATH);
@@ -34,20 +35,25 @@ void Projectiles::showProjectileTexture()
 	if (a == 60) {
 		a = 0;
 	}
+
+	a += 1;
 	projectileSprite.setTexture(projectileTexture);
 }
 
+//Update loop of the projectiles class for gameplay elements
 void Projectiles::projoLoop()
 {
 	projectileSprite.move(Dir* speed);
 }
 
+//Update loop of the player class for rendered elements
 void Projectiles::projectileRender(sf::RenderWindow* window) 
 {
 	this->showProjectileTexture();
 	window->draw(projectileSprite);
 }
 
+//Return the player's position
 sf::Vector2f Projectiles::returnPos() {
 	projPos = projectileSprite.getPosition();
 	projectileSprite.setPosition(projPos);

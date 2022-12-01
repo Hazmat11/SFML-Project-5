@@ -10,6 +10,31 @@ InGame::~InGame() {
 
 }
 
+//Manage the collision between projectiles and enemies
+void InGame::projCollision() {
+	for (int i = 0; i < player.projos.size(); i++)
+	{
+		if (ennemies->ennemiesBox.contains(player.projos[i].projectileSprite.getPosition())) {
+			player.projos.erase(player.projos.begin() + i);
+
+			if (!ennemies->buffer.loadFromFile(JIGGLYPUFF_HURT_SOUND_PATH))
+				std::cout << "-1";
+			ennemies->jigglyoofSound.setBuffer(ennemies->buffer);
+			ennemies->jigglyoofSound.setVolume(25);
+			ennemies->jigglyoofSound.play();
+
+			ennemies->HP--;
+		}
+	}
+
+	for (int i = 0; i < enemiesList.size(); i++) {
+		if (enemiesList[i]->systemHP()) {
+			enemiesList.erase(enemiesList.begin() + i);
+		}
+	}
+}
+
+//Update loop for every gameplay elements
 void InGame::GameLoop(sf::RenderWindow* win) {
 	player.playerLoop(win);
 	for (int i = 0; i < enemiesList.size(); i++) {
@@ -19,14 +44,15 @@ void InGame::GameLoop(sf::RenderWindow* win) {
 	enemySystemHP();
 }
 
+//Update loop for every rendered elements
 void InGame::Render(sf::RenderWindow* window) {	
 	window->draw(map->actualMap);
-	window->draw(map->object);
-	if (!enemy.deleteSprite) {
-		window->draw(enemy.ennemiesSprite);
+	if (!map->deleteSprite) {
+		window->draw(map->object);
+		window->draw(map->keySprite);
 	}
-	for (int i = 0; i < enemiesList.size(); i++) {
-		enemiesList[i].ennemiesTexture();
+	if (!ennemies->deleteSprite) {
+		window->draw(ennemies->ennemiesSprite);
 	}
 	player.playerRender(window);
 }

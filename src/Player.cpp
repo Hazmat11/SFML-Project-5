@@ -12,31 +12,15 @@ Player::Player(Projectiles* proj) {
 	projectile = proj;
 }
 
-
 Player::~Player() {
 }
 
+//Return the player's position
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
 	//std::cout << "playerPos: " << playerPosition.x << " " << playerPosition.y << "\n";
 	return playerPosition;
-}
-
-void Player::wallCollision() {
-	returnPos();
-	if (playerPosition.x > 1635) {
-		playerSprite.move(-5.f, 0.f);
-	}
-	if (playerPosition.y < 135) {
-		playerSprite.move(0.f, 5.f);
-	}
-	if (playerPosition.x < 175) {
-		playerSprite.move(5.f, 0.f);
-	}
-	if (playerPosition.y > 830) {
-		playerSprite.move(0.f, -5.f);
-	}
 }
 
 void Player::movePlayer() {
@@ -61,16 +45,17 @@ void Player::movePlayer() {
 	}
 }
 
+//Allow the player to shoot in 4 directions with the keyboard's arrows
 void Player::playerShoot( )
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerPosition.x, playerPosition.y -15, 1, 0);
@@ -81,12 +66,12 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y - 15, -1, 0);
@@ -97,12 +82,12 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x - 15, playerSprite.getPosition().y, 0, -1);
@@ -114,10 +99,11 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x - 15, playerSprite.getPosition().y, 0, 1);
@@ -125,7 +111,7 @@ void Player::playerShoot( )
 		}
 		this->direction = DOWN;
 	}
-
+	
 	for (int i = 0; i < projos.size(); i += 1)
 	{
 		if (projos[i].projoActualTL >= projos[i].projoLifeTime) {
@@ -139,6 +125,7 @@ void Player::playerShoot( )
 	shootTimer++;
 }
 
+//Manage the player's HP
 void Player::playerHP(sf::RenderWindow* window) {
 	if (HP == 0) {
 		window->close();
@@ -148,25 +135,26 @@ void Player::playerHP(sf::RenderWindow* window) {
 	}
 }
 
+//Manage the player's animations
 void Player::playerTexture()
 {
 
 	if (frame < 30) {
 		switch (direction) {
 		default:
-			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 40));
 			break;
 		case 1:
-			playerSprite.setTextureRect(sf::IntRect(10, 154, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(10, 154, 40, 35));
 			break;
 		case 2:
-			playerSprite.setTextureRect(sf::IntRect(10, 89, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(15, 89, 40, 35));
 			break;
 		case 3:
-			playerSprite.setTextureRect(sf::IntRect(10, 214, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(10, 220, 40, 40));
 			break;
 		case 4:
-			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(10, 24, 40, 40));
 			break;
 		}
 		playerSprite.setTexture(texture);
@@ -175,19 +163,19 @@ void Player::playerTexture()
 	if (frame < 60 && frame > 29) {
 		switch (direction) {
 		default:
-			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 40));
 			break;
 		case 1 :
-			playerSprite.setTextureRect(sf::IntRect(140, 154, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 154, 40, 35));
 			break;
 		case 2:
-			playerSprite.setTextureRect(sf::IntRect(140, 89, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 89, 40, 35));
 			break;
 		case 3:
-			playerSprite.setTextureRect(sf::IntRect(140, 214, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 220, 40, 35));
 			break;
 		case 4:
-			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 50));
+			playerSprite.setTextureRect(sf::IntRect(140, 24, 40, 40));
 			break;
 		}
 		playerSprite.setTexture(texture);
@@ -199,6 +187,7 @@ void Player::playerTexture()
 	}
 }
 
+//Manage the start position, and the scale of the sprite of the player
 void Player::arrangeSprite()
 {
 	playerSprite.scale(sf::Vector2f(2.3f, 2.3f));
@@ -206,6 +195,7 @@ void Player::arrangeSprite()
 	playerSprite.setOrigin({ 20, 25 });
 }
 
+//Update loop of the player class for gameplay elements
 void Player::playerLoop(sf::RenderWindow* window) {
 	playerPosition = playerSprite.getPosition();
 	this->health->updateHealth(this->HP);
@@ -215,10 +205,10 @@ void Player::playerLoop(sf::RenderWindow* window) {
 		projos[i].projoLoop();
 	}
 	this->playerTexture();
-	this->wallCollision();
 	this->playerHP(window);
 }
 
+//Update loop of the player class for rendered elements
 void Player::playerRender(sf::RenderWindow* window) 
 {
 	health->DisplayHealth(window);
@@ -226,5 +216,25 @@ void Player::playerRender(sf::RenderWindow* window)
 
 	for (int i = 0; i < projos.size(); i++) {
 		projos[i].projectileRender(window);
+	}
+}
+
+//Player take damage
+void Player::takeDamage() {
+	if (!invincible) {
+		HP--;
+		playerSprite.setColor(sf::Color(255, 255, 255, 128));
+		invincible = true;
+	}
+}
+
+void Player::invincibility() {
+	if (invincible) {
+	time++;
+	}
+	if (time == 60) {
+		invincible = false;
+		time = 0;
+		playerSprite.setColor(sf::Color(255, 255, 255, 255));
 	}
 }
