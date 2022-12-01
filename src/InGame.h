@@ -8,7 +8,6 @@
 
 class InGame {
 public :
-	
 	Ennemies* ennemies;
 	Player player;
 	Map* map;
