@@ -12,7 +12,6 @@ Player::Player(Projectiles* proj) {
 	projectile = proj;
 }
 
-
 Player::~Player() {
 }
 
@@ -65,12 +64,12 @@ void Player::playerShoot( )
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerPosition.x, playerPosition.y -15, 1, 0);
@@ -81,12 +80,12 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x, playerSprite.getPosition().y - 15, -1, 0);
@@ -97,12 +96,12 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
 			pikattackSound.setBuffer(buffer);
-
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x - 15, playerSprite.getPosition().y, 0, -1);
@@ -114,10 +113,11 @@ void Player::playerShoot( )
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		if (shootTimer >= 60)
+		if (shootTimer >= 30)
 		{
 			if (!buffer.loadFromFile(PIKACHU_ATTACK_SOUND_PATH))
 				std::cout << "-1";
+			pikattackSound.setVolume(25);
 			pikattackSound.play();
 			shootTimer = 0;
 			Projectiles projo(playerSprite.getPosition().x - 15, playerSprite.getPosition().y, 0, 1);
@@ -125,7 +125,7 @@ void Player::playerShoot( )
 		}
 		this->direction = DOWN;
 	}
-
+	
 	for (int i = 0; i < projos.size(); i += 1)
 	{
 		if (projos[i].projoActualTL >= projos[i].projoLifeTime) {
