@@ -1,7 +1,7 @@
 #include "Ennemies.h"
 
 Ennemies::Ennemies() {
-	arrangeSprite();
+	ennemiesBox = ennemiesSprite.getGlobalBounds();
 }
 
 Ennemies::Ennemies(Player* p) {
@@ -9,8 +9,19 @@ Ennemies::Ennemies(Player* p) {
 	player = p;
 }
 
+Ennemies::Ennemies(Projectiles* proj) {
+
+	projectiles = proj;
+}
+
 Ennemies::~Ennemies() {
 
+}
+
+void Ennemies::ennemiesLoop() {
+	ennemiesTexture();
+	setEnnemiesCollisions();
+	//takeDamage();
 }
 
 void Ennemies::arrangeSprite()
@@ -57,7 +68,6 @@ void Ennemies::refreshTexture() {
 }
 
 void Ennemies::setEnnemiesCollisions(){
-	sf::FloatRect ennemiesBox = ennemiesSprite.getGlobalBounds();
 	this->player->playerBox = this->player->playerSprite.getGlobalBounds();
 
 	if (this->player->playerBox.intersects(ennemiesBox))
@@ -78,46 +88,9 @@ void Ennemies::setEnnemiesCollisions(){
 	}
 }
 
-void Ennemies::playerTakeDamage() {
-	
-}
-
-void Ennemies::moveEnemyX()
-{
-	int enemyX = ennemiesSprite.getPosition().x;
-	int enemyY = ennemiesSprite.getPosition().y;
-
-	int xdistance = player->playerSprite.getPosition().x - ennemiesSprite.getPosition().x;
-	
-	if (xdistance > 0)
-	{
-		ennemiesSprite.setPosition(enemyX + 2, enemyY);
+void Ennemies::takeDamage() {
+	this->projectiles->projectileBox = this->projectiles->projectileSprite.getGlobalBounds();
+	if (this->projectiles->projectileBox.intersects(ennemiesBox)) {
+		std::cout << "merde";
 	}
-	else if (xdistance < 0) {
-		ennemiesSprite.setPosition(enemyX - 2, enemyY);
-	}
-
-}
-
-void Ennemies::moveEnemyY()
-{
-	int enemyX = ennemiesSprite.getPosition().x;
-	int enemyY = ennemiesSprite.getPosition().y;
-
-	int ydistance = player->playerSprite.getPosition().y - ennemiesSprite.getPosition().y;
-
-	if (ydistance > 0)
-	{
-		ennemiesSprite.setPosition(enemyX, enemyY + 2);
-	}
-	else if (ydistance < 0) {
-		ennemiesSprite.setPosition(enemyX, enemyY - 2);
-	}
-
-}
-
-void Ennemies::enemyLoop()
-{
-	this->moveEnemyX();
-	this->moveEnemyY();
 }

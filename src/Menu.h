@@ -21,12 +21,25 @@ public :
 	void Render(sf::RenderWindow* win);
 private :
 	int frame = 0;
-	std::vector<Button> buttons;
+
+	// Menu Background
 	sf::Texture menu;
 	sf::Sprite MenuBG;
+	
+	// Load Font
 	sf::Font fontTitle;
+	sf::Font fontIsaac;
+
+	// Title Text
 	sf::Text title;
 	sf::Text title2;
+
+	// Credit Text
+	sf::Text credit;
+	sf::Text names;
+
+	// Menu's Buttons
+	std::vector<Button> buttons;
 	Button quitBT;
 	Button playBT;
 };

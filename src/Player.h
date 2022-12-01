@@ -14,23 +14,25 @@
 #define PIKACHU_TEXTURE_PATH "img/player.png"
 #define PIKACHU_ATTACK_SOUND_PATH "sounds/pikattack.mp3"
 
-
 class Player
 {
 public :
 	Player();
+	Player(Projectiles* proj);
 	~Player();
 	sf::Vector2f returnPos();
 
-	Projectiles projectile;
+	Projectiles* projectile;
 
 	void movePlayer();
 	void playerTexture();
 	void arrangeSprite();
 	void setPlayerCollisions();
+	void projCollision();
 	void wallCollision();
+	//void verifShoot();
 	void playerHP(sf::RenderWindow* window);
-	void playerShoot();
+	void playerShoot( );
 	void playerRender(sf::RenderWindow* win);
 	void playerLoop(sf::RenderWindow* window);
 
@@ -40,6 +42,7 @@ public :
 	sf::FloatRect playerBox;
 
 	int HP = 4;
+	bool shoot;
 
 private :
 	std::vector<Projectiles> projos;
