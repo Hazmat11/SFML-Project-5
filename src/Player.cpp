@@ -23,22 +23,6 @@ sf::Vector2f Player::returnPos(){
 	return playerPosition;
 }
 
-void Player::wallCollision() {
-	returnPos();
-	if (playerPosition.x > 1635) {
-		playerSprite.move(-5.f, 0.f);
-	}
-	if (playerPosition.y < 135) {
-		playerSprite.move(0.f, 5.f);
-	}
-	if (playerPosition.x < 175) {
-		playerSprite.move(5.f, 0.f);
-	}
-	if (playerPosition.y > 830) {
-		playerSprite.move(0.f, -5.f);
-	}
-}
-
 void Player::movePlayer() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
@@ -215,9 +199,7 @@ void Player::playerLoop(sf::RenderWindow* window) {
 		projos[i].projoLoop();
 	}
 	this->playerTexture();
-	this->wallCollision();
 	this->playerHP(window);
-	//verifShoot();
 }
 
 void Player::playerRender(sf::RenderWindow* window) 

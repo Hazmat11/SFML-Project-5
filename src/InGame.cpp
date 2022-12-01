@@ -37,7 +37,10 @@ void InGame::GameLoop(sf::RenderWindow* win) {
 
 void InGame::Render(sf::RenderWindow* window) {	
 	window->draw(map->actualMap);
-	window->draw(map->object);
+	if (!map->deleteSprite) {
+		window->draw(map->object);
+		window->draw(map->keySprite);
+	}
 	if (!ennemies->deleteSprite) {
 		window->draw(ennemies->ennemiesSprite);
 	}
