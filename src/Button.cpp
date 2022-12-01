@@ -11,6 +11,7 @@ Button::~Button() {
 
 }
 
+//Manage the buttons displaying on screen
 void Button::setButton(int x, int y, int w, int h, std::string text, int fontSize, float angle, int r, int g, int b, int a, sf::RenderWindow* window, const sf::Color& color) {
 	this->posx = x;
 	this->posy = y;
@@ -36,6 +37,7 @@ void Button::setButton(int x, int y, int w, int h, std::string text, int fontSiz
 	this->win = window;
 }
 
+//Manage the position of the mouse
 bool Button::OnHover(sf::RenderWindow* rWin) {
 	if (this->posx <= sf::Mouse::getPosition(*rWin).x && sf::Mouse::getPosition(*rWin).x <= (this->posx + this->width)) {
 		if (this->posy <= sf::Mouse::getPosition(*rWin).y && sf::Mouse::getPosition(*rWin).y <= (this->posy + this->height)) {
@@ -51,6 +53,7 @@ bool Button::OnHover(sf::RenderWindow* rWin) {
 	
 }
 
+//Render the buttons
 void Button::RenderBT() {
 	this->win->draw(this->rect);
 	this->win->draw(this->textSfml);

@@ -15,6 +15,7 @@ Player::Player(Projectiles* proj) {
 Player::~Player() {
 }
 
+//Return the player's position
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
@@ -22,6 +23,7 @@ sf::Vector2f Player::returnPos(){
 	return playerPosition;
 }
 
+//Set the collisions between walls and the player
 void Player::wallCollision() {
 	returnPos();
 	if (playerPosition.x > 1635) {
@@ -38,6 +40,7 @@ void Player::wallCollision() {
 	}
 }
 
+//Allow the player to move with Z, Q, S, and D
 void Player::movePlayer() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
@@ -60,6 +63,7 @@ void Player::movePlayer() {
 	}
 }
 
+//Allow the player to shoot in 4 directions with the keyboard's arrows
 void Player::playerShoot( )
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -139,6 +143,7 @@ void Player::playerShoot( )
 	shootTimer++;
 }
 
+//Manage the player's HP
 void Player::playerHP(sf::RenderWindow* window) {
 	if (HP == 0) {
 		window->close();
@@ -148,6 +153,7 @@ void Player::playerHP(sf::RenderWindow* window) {
 	}
 }
 
+//Manage the player's animations
 void Player::playerTexture()
 {
 
@@ -199,6 +205,7 @@ void Player::playerTexture()
 	}
 }
 
+//Manage the start position, and the scale of the sprite of the player
 void Player::arrangeSprite()
 {
 	playerSprite.scale(sf::Vector2f(2.3f, 2.3f));
@@ -206,6 +213,7 @@ void Player::arrangeSprite()
 	playerSprite.setOrigin({ 20, 25 });
 }
 
+//Update loop of the player class for gameplay elements
 void Player::playerLoop(sf::RenderWindow* window) {
 	playerPosition = playerSprite.getPosition();
 	this->health->updateHealth(this->HP);
@@ -220,6 +228,7 @@ void Player::playerLoop(sf::RenderWindow* window) {
 	//verifShoot();
 }
 
+//Update loop of the player class for rendered elements
 void Player::playerRender(sf::RenderWindow* window) 
 {
 	health->DisplayHealth(window);

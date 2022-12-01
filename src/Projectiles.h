@@ -35,4 +35,3 @@ private:
 
 	void showProjectileTexture();
 };
-

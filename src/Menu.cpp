@@ -88,6 +88,7 @@ Menu::~Menu() {
 
 }
 
+//Update loop of the menu class for gameplay elements
 int Menu::MenuLoop(sf::RenderWindow* rw) {
 	// On Click
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -167,6 +168,7 @@ int Menu::MenuLoop(sf::RenderWindow* rw) {
 	return 0;
 }
 
+//Update loop of the menu class for rendered elements
 void Menu::Render(sf::RenderWindow* win) {
 	win->draw(MenuBG);
 	win->draw(title);
