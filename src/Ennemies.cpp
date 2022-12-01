@@ -127,12 +127,12 @@ void Ennemies::moveEnemyX()
 
 	int xdistance = player->playerSprite.getPosition().x - ennemiesSprite.getPosition().x;
 
-	if (xdistance > 2)
+	if (xdistance > 1.5)
 	{
 		ennemiesSprite.setPosition(enemyX + 2, enemyY);
 		faceRight = true;
 	}
-	else if (xdistance < 2) {
+	else if (xdistance < 1.5) {
 		ennemiesSprite.setPosition(enemyX - 2, enemyY);
 		faceLeft = true;
 	}
@@ -147,11 +147,11 @@ void Ennemies::moveEnemyY()
 
 	int ydistance = player->playerSprite.getPosition().y - ennemiesSprite.getPosition().y;
 
-	if (ydistance > 2)
+	if (ydistance > 1.25)
 	{
 		ennemiesSprite.setPosition(enemyX, enemyY + 2);
 	}
-	else if (ydistance < 2) {
+	else if (ydistance < 1.25) {
 		ennemiesSprite.setPosition(enemyX, enemyY - 2);
 	}
 
