@@ -44,7 +44,7 @@ void Map::nextMap()
 }
 
 void Map::spikeMap() {
-	if (!this->player->playerBox.intersects(sf::FloatRect(940, 860, 40, 40)) && currentMap == 1) {
+	if (currentMap == 1 && !this->player->playerBox.intersects(sf::FloatRect(940, 860, 40, 30))) {
 		if (!invincible) {
 			player->HP--;
 			this->player->playerSprite.setColor(sf::Color(255, 255, 255, 128));

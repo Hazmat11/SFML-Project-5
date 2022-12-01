@@ -30,7 +30,7 @@ public :
 	void setPlayerCollisions();
 	void projCollision();
 	void wallCollision();
-	//void verifShoot();
+	void verifShoot();
 	void playerHP(sf::RenderWindow* window);
 	void playerShoot( );
 	void playerRender(sf::RenderWindow* win);
@@ -43,9 +43,10 @@ public :
 
 	int HP = 4;
 	bool shoot;
+	std::vector<Projectiles> projos;
+
 
 private :
-	std::vector<Projectiles> projos;
 
 	int maxHP = 4;
 	int frame = 0;

@@ -18,7 +18,7 @@ Player::~Player() {
 sf::Vector2f Player::returnPos(){
 	playerPosition = playerSprite.getPosition();
 	playerSprite.setPosition(playerPosition);
-	std::cout << "playerPos: " << playerPosition.x << " " << playerPosition.y << "\n";
+	//std::cout << "playerPos: " << playerPosition.x << " " << playerPosition.y << "\n";
 	return playerPosition;
 }
 
@@ -233,6 +233,5 @@ void Player::playerRender(sf::RenderWindow* window)
 //void Player::verifShoot() {
 //	if (projectile->projectileSprite.getTexture()) {
 //		shoot = true;
-//		std::cout << "chiasse";
 //	}
 //}

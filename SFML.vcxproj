@@ -177,6 +177,9 @@
     <Font Include="IsaacGame.ttf" />
     <Font Include="upheavtt.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="img\MenuMusic.mp3" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -27,11 +27,15 @@ public:
 	void moveEnemyY();
 	void enemyLoop();
 	void takeDamage();
+	bool systemHP();
 
 
 	sf::Sprite ennemiesSprite;
 	sf::Texture texture;
 	sf::FloatRect ennemiesBox;
+
+	int HP = 2;
+	bool deleteSprite;
 
 private:
 	int frame = 0;

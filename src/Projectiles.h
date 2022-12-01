@@ -26,6 +26,7 @@ public:
 	sf::Vector2f projPos;
 
 private:
+
 	sf::Texture projectileTexture;
 	sf::Vector2f Dir;
 

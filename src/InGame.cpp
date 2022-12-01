@@ -2,18 +2,23 @@
 
 InGame::InGame() {
 	ennemies = new Ennemies(&player);
+	enemiesList.push_back(ennemies);
 	map = new Map(&player);
 }
 
 void InGame::projCollision() {
-	if (player.shoot == true) {
-		projectile->projectileBox = projectile->projectileSprite.getGlobalBounds();
-		ennemies->ennemiesBox = ennemies->ennemiesSprite.getGlobalBounds();
-		if (projectile->projectileBox.intersects(ennemies->ennemiesBox)) {
-		
+	for (int i = 0; i < player.projos.size(); i++)
+	{
+		if (ennemies->ennemiesBox.contains(player.projos[i].projectileSprite.getPosition())) {
+			player.projos.erase(player.projos.begin() + i);
+			ennemies->HP--;
 		}
 	}
-	else {
+
+	for (int i = 0; i < enemiesList.size(); i++) {
+		if (enemiesList[i]->systemHP()) {
+			enemiesList.erase(enemiesList.begin() + i);
+		}
 	}
 }
 
@@ -33,6 +38,8 @@ void InGame::GameLoop(sf::RenderWindow* win) {
 void InGame::Render(sf::RenderWindow* window) {	
 	window->draw(map->actualMap);
 	window->draw(map->object);
-	window->draw(ennemies->ennemiesSprite);
+	if (!ennemies->deleteSprite) {
+		window->draw(ennemies->ennemiesSprite);
+	}
 	player.playerRender(window);
 }
