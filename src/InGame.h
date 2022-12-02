@@ -15,6 +15,7 @@ public :
 
 	InGame();
 	~InGame();
+	void projCollision();
 	void GameLoop(sf::RenderWindow* win);
 	void Render(sf::RenderWindow* win);
 	void enemySystemHP();

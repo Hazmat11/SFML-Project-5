@@ -14,21 +14,21 @@ InGame::~InGame() {
 void InGame::projCollision() {
 	for (int i = 0; i < player.projos.size(); i++)
 	{
-		if (ennemies->ennemiesBox.contains(player.projos[i].projectileSprite.getPosition())) {
+		if (enemiesList[i].ennemiesBox.contains(player.projos[i].projectileSprite.getPosition())) {
 			player.projos.erase(player.projos.begin() + i);
 
-			if (!ennemies->buffer.loadFromFile(JIGGLYPUFF_HURT_SOUND_PATH))
+			if (!enemiesList[i].buffer.loadFromFile(JIGGLYPUFF_HURT_SOUND_PATH)) {
 				std::cout << "-1";
-			ennemies->jigglyoofSound.setBuffer(ennemies->buffer);
-			ennemies->jigglyoofSound.setVolume(25);
-			ennemies->jigglyoofSound.play();
-
-			ennemies->HP--;
+			}
+			enemiesList[i].jigglyoofSound.setBuffer(enemiesList[i].buffer);
+			enemiesList[i].jigglyoofSound.setVolume(25);
+			enemiesList[i].jigglyoofSound.play();
+			enemiesList[i].HP--;
 		}
 	}
 
 	for (int i = 0; i < enemiesList.size(); i++) {
-		if (enemiesList[i]->systemHP()) {
+		if (enemiesList[i].systemHP()) {
 			enemiesList.erase(enemiesList.begin() + i);
 		}
 	}
@@ -51,8 +51,10 @@ void InGame::Render(sf::RenderWindow* window) {
 		window->draw(map->object);
 		window->draw(map->keySprite);
 	}
-	if (!ennemies->deleteSprite) {
-		window->draw(ennemies->ennemiesSprite);
+	for (int i = 0; i < enemiesList.size(); i++) {
+		if (!enemiesList[i].deleteSprite) {
+			window->draw(enemiesList[i].ennemiesSprite);
+		}
 	}
 	player.playerRender(window);
 }
