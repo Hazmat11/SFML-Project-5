@@ -21,6 +21,5 @@ In a group of three, we decided to make a game in the universe of The Binding Of
   * Gestion of collision on different texture
   * Creation of trap 
 	* Presence of different sized room with camera gestion
-### Installation
----
+## Installation
 You will need to install the latest version of SFML and include the libraries. You need to use Visual Studio Microsoft 2017 version as SFML don't work on older versions
